@@ -17,6 +17,8 @@ from fastchat.llm_judge.common import load_questions, temperature_config
 from fastchat.model import load_model, get_conversation_template
 from fastchat.utils import str_to_torch_dtype
 
+import warnings
+warnings.filterwarnings("ignore")
 
 def run_eval(
     model_path,
@@ -42,7 +44,7 @@ def run_eval(
     use_ray = num_gpus_total // num_gpus_per_model > 1
 
     if use_ray:
-        get_answers_func = ray.remote(num_gpus=num_gpus_per_model)(
+        get_answers_func = ray.remote(num_cpus=num_gpus_per_model)(
             get_model_answers
         ).remote
     else:
@@ -95,7 +97,7 @@ def get_model_answers(
         debug=False,
     )
 
-    for question in tqdm(questions):
+    for question in tqdm(questions, ncols=80):
         if question["category"] in temperature_config:
             temperature = temperature_config[question["category"]]
         else:
@@ -105,7 +107,7 @@ def get_model_answers(
         for i in range(num_choices):
             torch.manual_seed(i)
             conv = get_conversation_template(model_id)
-            turns = []
+            turns = []; times = []
             for j in range(len(question["turns"])):
                 qs = question["turns"][j]
                 conv.append_message(conv.roles[0], qs)
@@ -118,6 +120,7 @@ def get_model_answers(
                 else:
                     do_sample = True
 
+                start = time.process_time()
                 # some models may error out when generating long outputs
                 try:
                     output_ids = model.generate(
@@ -171,11 +174,13 @@ def get_model_answers(
                 except RuntimeError as e:
                     print("ERROR question ID: ", question["question_id"])
                     output = "ERROR"
-
+                end = time.process_time()
+                
                 conv.update_last_message(output)
                 turns.append(output)
+                times.append(end-start)
 
-            choices.append({"index": i, "turns": turns})
+            choices.append({"index": i, "turns": turns, "proc_time": times})
 
         # Dump answers
         os.makedirs(os.path.dirname(answer_file), exist_ok=True)
