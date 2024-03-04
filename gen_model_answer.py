@@ -98,7 +98,7 @@ def get_model_answers(
     )
 
     for question in tqdm(questions, ncols=80):
-        if question["category"] in temperature_config:
+        if "category" in question and question["category"] in temperature_config:
             temperature = temperature_config[question["category"]]
         else:
             temperature = 0.7
@@ -108,6 +108,7 @@ def get_model_answers(
             torch.manual_seed(i)
             conv = get_conversation_template(model_id)
             turns = []; times = []
+            question["turns"] = [question["turns"]] if type(question["turns"]) != list else question["turns"]
             for j in range(len(question["turns"])):
                 qs = question["turns"][j]
                 conv.append_message(conv.roles[0], qs)

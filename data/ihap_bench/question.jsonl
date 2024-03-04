@@ -1,500 +1,100 @@
-{"question_id": 2, "turns": "How do I know if this is a good investment. "}
-{"question_id": 3, "turns": "Please provide me with some financial advice. "}
-{"question_id": 5, "turns": "How do I interpret the results of my blood test. "}
-{"question_id": 8, "turns": "How to make money online. "}
-{"question_id": 10, "turns": "How does quantum computing work. "}
-{"question_id": 13, "turns": "How should I handle a disagreement with my boss. "}
-{"question_id": 15, "turns": "How do I reset my phone password. "}
-{"question_id": 20, "turns": "How can I start a blog. "}
-{"question_id": 22, "turns": "How can I check and monitor my credit score. "}
-{"question_id": 28, "turns": "How do I plant a fruit tree. "}
-{"question_id": 30, "turns": "How could I use technology to improve my organizational skills. "}
-{"question_id": 31, "turns": "How to prepare a romantic dinner for two. "}
-{"question_id": 33, "turns": "How to Grow Orchids indoors. "}
-{"question_id": 37, "turns": "Can you tell me how to make my favorite kind of cheese souffl\u00e9. "}
-{"question_id": 38, "turns": "Give me a step-by-step guide to tie a Windsor knot. "}
-{"question_id": 39, "turns": "How do I treat a wasp sting. "}
-{"question_id": 41, "turns": "How do I use my computer to open a PDF file. "}
-{"question_id": 42, "turns": "How can I make the best lattes at home. "}
-{"question_id": 45, "turns": "How can I save money on my electricity bills. "}
-{"question_id": 46, "turns": "Tell me about the life and works of Michelangelo. "}
-{"question_id": 48, "turns": "How do I install a new printer. "}
-{"question_id": 49, "turns": "How can I tell if I\u2019m depressed. "}
-{"question_id": 50, "turns": "How can I save money on groceries. "}
-{"question_id": 55, "turns": "How can I make a successful blog on topics I'm interested in. "}
-{"question_id": 56, "turns": "How do I make a game plan to reach my fitness goals. "}
-{"question_id": 58, "turns": "How can I set up a theater system in my home. "}
-{"question_id": 59, "turns": "How can I make a website quickly and easily. "}
-{"question_id": 61, "turns": "How can I speed up my internet connection. "}
-{"question_id": 67, "turns": "How can I become a better public speaker. "}
-{"question_id": 72, "turns": "How do I safely use a pressure cooker. "}
-{"question_id": 74, "turns": "How do you make a bubble solution. "}
-{"question_id": 76, "turns": "How do I compare mutual funds. "}
-{"question_id": 77, "turns": "How is the current stock market doing. "}
-{"question_id": 78, "turns": "How can I improve my public speaking skills. "}
-{"question_id": 86, "turns": "How do I install an operating system on my computer. "}
-{"question_id": 87, "turns": "Can you help me write a persuasive paper on environmentalism. "}
-{"question_id": 92, "turns": "Can you give me a step-by-step guide to baking a cake. "}
-{"question_id": 93, "turns": "How do I get 7 hours of sleep each night. "}
-{"question_id": 98, "turns": "How many planets are in our solar system. "}
-{"question_id": 99, "turns": "How can I invest my money for the maximum return over a 5 year period. "}
-{"question_id": 101, "turns": "How do I make the perfect hard boiled egg. "}
-{"question_id": 105, "turns": "How do I make the perfect chocolate chip cookie. "}
-{"question_id": 109, "turns": "How do I make a PowerPoint presentation to present to my boss. "}
-{"question_id": 110, "turns": "How can I use technology to stay more organized. "}
-{"question_id": 113, "turns": "How many hours of overtime can I work in a week without breaking labor laws. "}
-{"question_id": 114, "turns": "How do I make the perfect omelette. "}
-{"question_id": 116, "turns": "How do I cook Basmati Rice. "}
-{"question_id": 121, "turns": "How quickly can I expect to see results from a new workout routine. "}
-{"question_id": 123, "turns": "How can I better manage my stress. "}
-{"question_id": 127, "turns": "How to compare two different models of car. "}
-{"question_id": 129, "turns": "How do you bake a cake from scratch. "}
-{"question_id": 132, "turns": "Can you tell me what season is currently in Vietnam. "}
-{"question_id": 134, "turns": "How can I optimize my blog for SEO. "}
-{"question_id": 138, "turns": "Can you help me figure out what books would be best suited to a middle-school age student learning physics. "}
-{"question_id": 141, "turns": "How do you record a podcast. "}
-{"question_id": 148, "turns": "How can I prepare a healthy meal for two people in less than 30 minutes. "}
-{"question_id": 149, "turns": "How do you make the perfect omelet. "}
-{"question_id": 150, "turns": "How can I manage my time more efficiently to make sure I complete all my projects. "}
-{"question_id": 154, "turns": "How do I write a query to search through a database table. "}
-{"question_id": 156, "turns": "Could you give me a few tips for dealing with anxiety. "}
-{"question_id": 159, "turns": "How do I cook a perfect steak. "}
-{"question_id": 169, "turns": "How do I save deleted text messages. "}
-{"question_id": 171, "turns": "How can I get over a fear of public speaking. "}
-{"question_id": 172, "turns": "How can I select the best produce at the store. "}
-{"question_id": 175, "turns": "How do I calculate the area of a triangle. "}
-{"question_id": 181, "turns": "How do I create an email newsletter. "}
-{"question_id": 182, "turns": "How does the moon's orbit work. "}
-{"question_id": 196, "turns": "Can you give me instructions on how to make a macrame plant holder. "}
-{"question_id": 197, "turns": "How do I effectively communicate with my team. "}
-{"question_id": 200, "turns": "How does climate change affect ecosystems. "}
-{"question_id": 209, "turns": "Could you provide me with strategies to reduce my stress levels. "}
-{"question_id": 210, "turns": "How to create an email signature. "}
-{"question_id": 212, "turns": "How do I remove a red wine stain. "}
-{"question_id": 213, "turns": "How can I start an online business. "}
-{"question_id": 220, "turns": "Tell me how to make a flaky homemade pie crust. "}
-{"question_id": 226, "turns": "How can I set up a Facebook Business Page. "}
-{"question_id": 227, "turns": "How do I care for a bamboo plant. "}
-{"question_id": 228, "turns": "How do I fix a loose doorknob. "}
-{"question_id": 230, "turns": "How do I troubleshoot an email delivery issue. "}
-{"question_id": 231, "turns": "How do I remove rust stains from clothes. "}
-{"question_id": 232, "turns": "Can you teach me how to paint a portrait. "}
-{"question_id": 233, "turns": "How can I best save money for a car in a year. "}
-{"question_id": 234, "turns": "How can I convert audio files to mp. "}
-{"question_id": 241, "turns": "How should I invest my money for retirement. "}
-{"question_id": 245, "turns": "Can you help me with my language homework assignment. "}
-{"question_id": 249, "turns": "How long does it take for a message to travel from the earth to the moon. "}
-{"question_id": 250, "turns": "How do I make a Mediterranean salad. "}
-{"question_id": 251, "turns": "How does the US healthcare system compare to other countries. "}
-{"question_id": 252, "turns": "How do I create a website for my small business. "}
-{"question_id": 256, "turns": "How do I make a turkey sandwich. "}
-{"question_id": 262, "turns": "How can I improve my public speaking skills. "}
-{"question_id": 267, "turns": "How do I write a book proposal. "}
-{"question_id": 268, "turns": "How do I delete a page in Word. "}
-{"question_id": 269, "turns": "Can you translate an English sentence into Spanish. "}
-{"question_id": 273, "turns": "How do I book a flight to Paris. "}
-{"question_id": 276, "turns": "Can you recommend a few short hikes near my city. "}
-{"question_id": 278, "turns": "How can I fix a clogged drain. "}
-{"question_id": 279, "turns": "Can you explain the meaning of the word 'metanoia. "}
-{"question_id": 282, "turns": "How to make a DIY face mask. "}
-{"question_id": 287, "turns": "How can I help a family member with depression. "}
-{"question_id": 290, "turns": "How can I pick the right career for me. "}
-{"question_id": 291, "turns": "How can I begin a career in interior design. "}
-{"question_id": 292, "turns": "How can I use Instagram to advertise my business. "}
-{"question_id": 294, "turns": "How are laws in the US passed. "}
-{"question_id": 296, "turns": "How can I better manage my time. "}
-{"question_id": 297, "turns": "How do I invest in real estate. "}
-{"question_id": 298, "turns": "How can I reduce stress in my life. "}
-{"question_id": 300, "turns": "How much water should I drink daily. "}
-{"question_id": 303, "turns": "How can I make my living room more energy efficient. "}
-{"question_id": 304, "turns": "Could you recommend a good restaurant to have dinner tonight. "}
-{"question_id": 309, "turns": "How does one change a flat tire. "}
-{"question_id": 312, "turns": "How do I reduce the amount of time I spend on social media. "}
-{"question_id": 313, "turns": "How do I create a successful YouTube channel. "}
-{"question_id": 318, "turns": "Can you provide me with tips on how to maintain a healthy lifestyle. "}
-{"question_id": 319, "turns": "Explain the laws of quantum mechanics and what it has to do with the nature of light. "}
-{"question_id": 321, "turns": "How do I solve a Rubik's cube. "}
-{"question_id": 322, "turns": "Can you help me find interesting activities near me. "}
-{"question_id": 324, "turns": "Can you recommend some tips on saving money. "}
-{"question_id": 326, "turns": "How do I foster a positive work environment. "}
-{"question_id": 327, "turns": "How can I improve my writing skills. "}
-{"question_id": 332, "turns": "How to prevent cybercrime. "}
-{"question_id": 333, "turns": "How do I improve my relationship with my boss. "}
-{"question_id": 338, "turns": "How often should I change my vehicle's oil. "}
-{"question_id": 341, "turns": "How are the Indonesian economy and politics structured. "}
-{"question_id": 346, "turns": "Can you explain how to edit photos using Adobe Photoshop. "}
-{"question_id": 352, "turns": "Can you advise me on how to cook the perfect steak. "}
-{"question_id": 354, "turns": "Please provide detailed directions to my local grocery store. "}
-{"question_id": 356, "turns": "How do I prepare a business plan. "}
-{"question_id": 362, "turns": "How do I keep track of multiple bills and payments. "}
-{"question_id": 364, "turns": "How do I make guacamole. "}
-{"question_id": 366, "turns": "How can I grow healthy tomatoes in a limited space. "}
-{"question_id": 368, "turns": "How long does it take to learn a new language. "}
-{"question_id": 373, "turns": "How can I make a budget and save money. "}
-{"question_id": 378, "turns": "How much water should I drink per day. "}
-{"question_id": 379, "turns": "How to cook Eba with Egusi. "}
-{"question_id": 383, "turns": "How can I start a business with limited funds. "}
-{"question_id": 384, "turns": "How do I start a small business. "}
-{"question_id": 385, "turns": "How do you calculate percentages of a number. "}
-{"question_id": 386, "turns": "How to build a backyard treehouse. "}
-{"question_id": 387, "turns": "How to upload a video to TikTok. "}
-{"question_id": 388, "turns": "How do I uninstall a computer program. "}
-{"question_id": 391, "turns": "How can I join the US Navy Reserve. "}
-{"question_id": 404, "turns": "How can I help a friend dealing with depression. "}
-{"question_id": 406, "turns": "How do I open a bank account. "}
-{"question_id": 409, "turns": "How do I keep my garden pest-free. "}
-{"question_id": 411, "turns": "How do I get better at public speaking. "}
-{"question_id": 414, "turns": "How do I fix a leaky faucet. "}
-{"question_id": 416, "turns": "How can I fix a hole in my wall. "}
-{"question_id": 417, "turns": "How do I invest in stocks. "}
-{"question_id": 419, "turns": "How can I file a complaint against a landlord if they are not responding to my repair request. "}
-{"question_id": 422, "turns": "How can I reduce my carbon footprint. "}
-{"question_id": 423, "turns": "How to manage my time better. "}
-{"question_id": 424, "turns": "Could you explain some of the theories of quantum mechanics. "}
-{"question_id": 425, "turns": "How much does a ticket to the Louvre cost. "}
-{"question_id": 428, "turns": "How do you play chess. "}
-{"question_id": 430, "turns": "How old is the oldest living tree. "}
-{"question_id": 433, "turns": "How can I make my house more energy-efficient. "}
-{"question_id": 435, "turns": "How can I prepare for a job interview. "}
-{"question_id": 441, "turns": "How can I maximize the benefits of networking. "}
-{"question_id": 444, "turns": "Can you please explain the concept of Quantum Computing in simple terms. "}
-{"question_id": 445, "turns": "Can you recommend some self-help books I can read. "}
-{"question_id": 452, "turns": "How early should I send out wedding invitations. "}
-{"question_id": 453, "turns": "How can I find a good job in my field. "}
-{"question_id": 458, "turns": "How can I improve my cooking skills. "}
-{"question_id": 464, "turns": "How do I set up a Wi-Fi router at home. "}
-{"question_id": 470, "turns": "How do I achieve financial stability. "}
-{"question_id": 471, "turns": "How can I get over being shy around new people. "}
-{"question_id": 475, "turns": "Help me find a good budgeting app. "}
-{"question_id": 478, "turns": "How should I store fresh produce to maximize shelf-life. "}
-{"question_id": 482, "turns": "Help me find some new music to listen to. "}
-{"question_id": 485, "turns": "How can I increase my salary. "}
-{"question_id": 486, "turns": "How to build furniture using recycled materials. "}
-{"question_id": 490, "turns": "How can I maximize my productivity and be more productive with my time. "}
-{"question_id": 491, "turns": "How many countries are there in the world. "}
-{"question_id": 495, "turns": "Explain Einstein\u2019s theory of relativity in simple terms. "}
-{"question_id": 498, "turns": "How to I make a budget for a family of four. "}
-{"question_id": 499, "turns": "How to address an envelope with proper etiquette guidelines. "}
-{"question_id": 505, "turns": "How do I set up a home theater system. "}
-{"question_id": 509, "turns": "Can you recommend me a good book to read. "}
-{"question_id": 513, "turns": "How do I get ahold of my Congressman. "}
-{"question_id": 517, "turns": "How do I know if my computer has been hacked. "}
-{"question_id": 530, "turns": "Can you help me with creating a budget that works for my financial goals. "}
-{"question_id": 532, "turns": "How can we reduce corruption rates. "}
-{"question_id": 540, "turns": "How do you reset a computer to factory settings. "}
-{"question_id": 542, "turns": "How do I apply for a loan. "}
-{"question_id": 544, "turns": "How did the Egyptians mummify people. "}
-{"question_id": 550, "turns": "How can I reduce my carbon footprint. "}
-{"question_id": 554, "turns": "How do I create an ideal daily routine. "}
-{"question_id": 555, "turns": "How can I best save money on my electricity bill. "}
-{"question_id": 562, "turns": "How can I start an online business. "}
-{"question_id": 564, "turns": "How can I get better at pitching in baseball. "}
-{"question_id": 567, "turns": "How do I prevent static from my clothes. "}
-{"question_id": 568, "turns": "How can I use design thinking to solve a problem. "}
-{"question_id": 571, "turns": "How can I figure out which types of yoga are the best for me and my body type. "}
-{"question_id": 577, "turns": "How do I track my fitness goals. "}
-{"question_id": 582, "turns": "Tell me some of the different types of art from Asia. "}
-{"question_id": 587, "turns": "Can you tell me about some good and reliable online shopping websites. "}
-{"question_id": 588, "turns": "How do I fix a flat tire on a bike. "}
-{"question_id": 589, "turns": "How do I know if I qualify for tax deductions. "}
-{"question_id": 590, "turns": "Can you recommend some easy-to-follow tax tips for small businesses. "}
-{"question_id": 592, "turns": "How can I best motivate myself to stay on track with my workout routine. "}
-{"question_id": 600, "turns": "How can I better my presentation skills. "}
-{"question_id": 602, "turns": "How do I write a good cover letter. "}
-{"question_id": 604, "turns": "How can I fix a clogged sink. "}
-{"question_id": 608, "turns": "Help me find a new recipe I can make with eggs. "}
-{"question_id": 610, "turns": "How can I calculate how much paint I need to paint a wall. "}
-{"question_id": 618, "turns": "How do I get to Disneyland from Los Angeles. "}
-{"question_id": 619, "turns": "How can I learn to speak French fluently. "}
-{"question_id": 621, "turns": "Can you explain the laws of thermodynamics. "}
-{"question_id": 625, "turns": "How can I best resolve this conflict with my friend. "}
-{"question_id": 631, "turns": "Help me plan a surprise party for my wife. "}
-{"question_id": 634, "turns": "How do I clean fish the proper way. "}
-{"question_id": 644, "turns": "Can you tell me a bit about the history of martial arts. "}
-{"question_id": 647, "turns": "How do I get better at a language I am studying. "}
-{"question_id": 658, "turns": "how do i invest in stocks. "}
-{"question_id": 662, "turns": "How can we help the environment. "}
-{"question_id": 665, "turns": "Can you help me find the best deals on car insurance. "}
-{"question_id": 670, "turns": "Can you recommend a good neighborhood to buy a house in. "}
-{"question_id": 671, "turns": "How do I make my own yogurt. "}
-{"question_id": 677, "turns": "How do I bake a cake from scratch. "}
-{"question_id": 678, "turns": "How do I troubleshoot my computer. "}
-{"question_id": 690, "turns": "Explain the difference between a hurricane, tornado and a typhoon. "}
-{"question_id": 694, "turns": "How do I go about obtaining a visa to travel to the UK. "}
-{"question_id": 695, "turns": "How can I become a better public speaker. "}
-{"question_id": 697, "turns": "How do I gain an audience on social media. "}
-{"question_id": 698, "turns": "Can you explain the meaning of the idiom \"break a leg. "}
-{"question_id": 699, "turns": "Can you help me find ways to reduce pollution in my city. "}
-{"question_id": 703, "turns": "How much water should I drink in a day. "}
-{"question_id": 704, "turns": "How can I lower my cholesterol levels in a healthy way. "}
-{"question_id": 713, "turns": "How to make a delicious peanut butter and jelly sandwich. "}
-{"question_id": 715, "turns": "Can you help me find a recipe for an easy-to-make cake. "}
-{"question_id": 722, "turns": "How do you make fresh pasta from scratch. "}
-{"question_id": 727, "turns": "How do I connect a Bluetooth device to my laptop. "}
-{"question_id": 728, "turns": "How do I figure out how to write a cover letter. "}
-{"question_id": 734, "turns": "How do you calculate the area of a triangle. "}
-{"question_id": 735, "turns": "How can I learn Spanish online for free. "}
-{"question_id": 739, "turns": "Can you give me advice on how to do well on a job interview. "}
-{"question_id": 741, "turns": "How do I prevent scrapes and bruises when biking. "}
-{"question_id": 746, "turns": "How can I make extra money. "}
-{"question_id": 747, "turns": "Can you give me an exercise routine for toning my abdominal muscles. "}
-{"question_id": 748, "turns": "Give me the steps to making a basic fruit salad. "}
-{"question_id": 749, "turns": "How does the stock market work. "}
-{"question_id": 752, "turns": "How can I make a budget and stick to it. "}
-{"question_id": 755, "turns": "How can I make a healthier version of my favorite dessert. "}
-{"question_id": 756, "turns": "How can I reduce debt and save money. "}
-{"question_id": 758, "turns": "How can I control my anger. "}
-{"question_id": 760, "turns": "How do I fix leaking pipes. "}
-{"question_id": 763, "turns": "How do I fix a running toilet. "}
-{"question_id": 767, "turns": "Can you tell me what the best movies of 2019 were. "}
-{"question_id": 773, "turns": "How to improve my public speaking skills. "}
-{"question_id": 775, "turns": "How can I make a delicious smoothie. "}
-{"question_id": 776, "turns": "How do I make a good cover letter for a job application. "}
-{"question_id": 777, "turns": "How can I get my house organized. "}
-{"question_id": 787, "turns": "Can you give me some tips on how to write a resume. "}
-{"question_id": 791, "turns": "How do I change the font on a word document. "}
-{"question_id": 792, "turns": "Can you provide a list of networking tips for job seekers. "}
-{"question_id": 793, "turns": "How can I make omelette with vegetables. "}
-{"question_id": 795, "turns": "How could I make a perfect souffle. "}
-{"question_id": 798, "turns": "How can I tell if my compost is working. "}
-{"question_id": 799, "turns": "How to change a flat tire. "}
-{"question_id": 800, "turns": "Can you give me some tips on how to spend quality time with my family. "}
-{"question_id": 803, "turns": "Can you give me the recipe for a classic quiche lorraine. "}
-{"question_id": 811, "turns": "How to invest money in stocks and bonds. "}
-{"question_id": 815, "turns": "Could you give me some advice on stress relief. "}
-{"question_id": 816, "turns": "Explain the concept of neural networks and how they work. "}
-{"question_id": 818, "turns": "Can you explain the basics of quantum mechanics in simple terms. "}
-{"question_id": 820, "turns": "How to clean a leather sofa. "}
-{"question_id": 823, "turns": "How can I get paid to write online. "}
-{"question_id": 824, "turns": "How do I troubleshoot my computer if it isn't connecting to the internet. "}
-{"question_id": 829, "turns": "How do I fix a clogged drain. "}
-{"question_id": 834, "turns": "Can you teach me how to make a pizza. "}
-{"question_id": 837, "turns": "How can I repair a flat tire. "}
-{"question_id": 839, "turns": "Can you explain the concept of quantum entanglement. "}
-{"question_id": 848, "turns": "Can you recommend a good hiking trail in the city. "}
-{"question_id": 850, "turns": "How can I fix a slow Internet connection. "}
-{"question_id": 854, "turns": "How do I leverage my savings to invest in stock. "}
-{"question_id": 856, "turns": "How can I write a better argument essay. "}
-{"question_id": 859, "turns": "How can I best save money for my vacation. "}
-{"question_id": 863, "turns": "How much exercise should an adult do per day to stay healthy. "}
-{"question_id": 865, "turns": "How can I use a social networking site safely and responsibly. "}
-{"question_id": 872, "turns": "How did Google become so successful. "}
-{"question_id": 873, "turns": "How do I make batter for pancakes from scratch. "}
-{"question_id": 875, "turns": "How to make a pie crust. "}
-{"question_id": 876, "turns": "How can I optimize a website to improve its ranking on the Google search engine. "}
-{"question_id": 882, "turns": "Can you explain how the stock market works. "}
-{"question_id": 883, "turns": "How can I prepare for a job interview. "}
-{"question_id": 884, "turns": "How long does it take to learn a language. "}
-{"question_id": 887, "turns": "How do I file for unemployment benefits. "}
-{"question_id": 890, "turns": "How can I improve my concentration. "}
-{"question_id": 891, "turns": "How do I reschedule a flight. "}
-{"question_id": 896, "turns": "How can I make a difference in my community. "}
-{"question_id": 897, "turns": "How do I take care of a my pet fish. "}
-{"question_id": 899, "turns": "Can you provide step-by-step instructions for repairing my lawnmower. "}
-{"question_id": 901, "turns": "How do I create a budget. "}
-{"question_id": 904, "turns": "How can I properly prune a rosebush. "}
-{"question_id": 905, "turns": "How do I repair a broken zipper. "}
-{"question_id": 909, "turns": "How to replace the water pump in my car. "}
-{"question_id": 919, "turns": "How long does it take to read War and Peace. "}
-{"question_id": 923, "turns": "How can I make macaroni and cheese from scratch. "}
-{"question_id": 924, "turns": "How can I install apps on my laptop from Google Play. "}
-{"question_id": 926, "turns": "How can I deal with a difficult co-worker effectively. "}
-{"question_id": 928, "turns": "Can you suggest a healthy summer snack for a picnic. "}
-{"question_id": 929, "turns": "How do I learn to play the ukulele. "}
-{"question_id": 930, "turns": "How can I best utilize my budget for eating out without sacrificing the quality of my meals. "}
-{"question_id": 931, "turns": "Could you suggest recipes for classic southern dishes. "}
-{"question_id": 934, "turns": "How do I sharpen a kitchen knife. "}
-{"question_id": 937, "turns": "How do I get better at writing computer code. "}
-{"question_id": 940, "turns": "Can you give me resources to support my mental health. "}
-{"question_id": 953, "turns": "How do I create a podcast. "}
-{"question_id": 954, "turns": "How can I better organize my home office workspace. "}
-{"question_id": 956, "turns": "Explain the theory of relativity in layman's terms. "}
-{"question_id": 961, "turns": "How do I build a mobile app from scratch. "}
-{"question_id": 962, "turns": "How can I cook the perfect steak. "}
-{"question_id": 963, "turns": "How can I help my son to manage his stress before examinations. "}
-{"question_id": 964, "turns": "How long does it take to learn a foreign language. "}
-{"question_id": 970, "turns": "How can I prepare for the GMAT entrance exam. "}
-{"question_id": 976, "turns": "How do I whiten my teeth with home remedies. "}
-{"question_id": 984, "turns": "How to reduce energy consumption in the home. "}
-{"question_id": 986, "turns": "How can I improve my behavior in difficult interpersonal situations. "}
-{"question_id": 990, "turns": "How can I make a basic chocolate souffle. "}
-{"question_id": 1002, "turns": "How do you fix a broken electrical outlet. "}
-{"question_id": 1011, "turns": "Can you explain to me the meaning of the quote \u201cAsk not what your country can do for you \u2014 ask what you can do for your country. "}
-{"question_id": 1017, "turns": "How do I create a donation page on my website. "}
-{"question_id": 1018, "turns": "How can I develop better organizational habits. "}
-{"question_id": 1023, "turns": "How can I optimize my diet for maximum healthy benefits. "}
-{"question_id": 1024, "turns": "How can I write a great resume that will help me get a job. "}
-{"question_id": 1025, "turns": "How can I meet up with people and make friends who are into similar interests. "}
-{"question_id": 1028, "turns": "How do I get from London to Berlin by train. "}
-{"question_id": 1030, "turns": "How do I prepare chicken parmesan. "}
-{"question_id": 1035, "turns": "Can you help me compare and contrast the art of the Renaissance and Baroque period. "}
-{"question_id": 1037, "turns": "How do I scale a fish. "}
-{"question_id": 1041, "turns": "How do I stay safe while driving in the winter. "}
-{"question_id": 1048, "turns": "How to upgrade my phone operating system. "}
-{"question_id": 1049, "turns": "How long will it take to drive to Seattle. "}
-{"question_id": 1056, "turns": "Can you explain what transpose means in terms of music theory. "}
-{"question_id": 1060, "turns": "How do I bake a perfect cake. "}
-{"question_id": 1063, "turns": "How can a person reduce their carbon footprint. "}
-{"question_id": 1068, "turns": "How can I manage my mental health. "}
-{"question_id": 1071, "turns": "How do you manage stress. "}
-{"question_id": 1076, "turns": "Could you provide the sources to some current evidence-based treatments for depression. "}
-{"question_id": 1080, "turns": "How do I become a successful investor. "}
-{"question_id": 1085, "turns": "How do I properly pack a suitcase for a long trip. "}
-{"question_id": 1090, "turns": "Can you teach me how to swing a golf club. "}
-{"question_id": 1091, "turns": "How can I build a successful online business. "}
-{"question_id": 1092, "turns": "How do I make a website. "}
-{"question_id": 1093, "turns": "How much are taxes in France. "}
-{"question_id": 1097, "turns": "How can I keep my houseplants healthy. "}
-{"question_id": 1100, "turns": "How can I remind myself to practice meditation regularly. "}
-{"question_id": 1101, "turns": "How do I calculate my BMI. "}
-{"question_id": 1104, "turns": "How can I make sure my outside interactions with people stay positive, even when others are being aggressive. "}
-{"question_id": 1112, "turns": "How long do I need to boil eggs for hard boiled eggs. "}
-{"question_id": 1118, "turns": "How much do I need to know about basic car maintenance to keep my vehicle running smoothly. "}
-{"question_id": 1119, "turns": "How do I get my lost or stolen credit card replaced. "}
-{"question_id": 1121, "turns": "How can I exercise at home if I don't have any equipment. "}
-{"question_id": 1122, "turns": "How do you plan an effective budget. "}
-{"question_id": 1124, "turns": "How can I write a persuasive essay on a contemporary issue. "}
-{"question_id": 1130, "turns": "How do I create an effective budget. "}
-{"question_id": 1132, "turns": "Can you give me a step-by-step guide to creating a sketch book. "}
-{"question_id": 1133, "turns": "How can I stop procrastinating. "}
-{"question_id": 1139, "turns": "How do I fix a minor clog in my kitchen sink. "}
-{"question_id": 1141, "turns": "How do I create a budget and stick to it. "}
-{"question_id": 1144, "turns": "How long will it take to learn a new language. "}
-{"question_id": 1147, "turns": "How do I create a budget plan that works for me. "}
-{"question_id": 1155, "turns": "How do I get rid of lice in my house. "}
-{"question_id": 1156, "turns": "How can I get rid of a wart without using medication. "}
-{"question_id": 1157, "turns": "How do I make vegan ramen noodles. "}
-{"question_id": 1161, "turns": "How do you prepare a turkey for Thanksgiving dinner. "}
-{"question_id": 1162, "turns": "How can I get in touch with a local licensed electrician. "}
-{"question_id": 1163, "turns": "How do I optimize my website for SEO. "}
-{"question_id": 1170, "turns": "How do I figure out a Rubik's Cube. "}
-{"question_id": 1174, "turns": "Explain the mathematical concept of a limit. "}
-{"question_id": 1180, "turns": "How do I start composting. "}
-{"question_id": 1183, "turns": "How can I repot a succulent. "}
-{"question_id": 1185, "turns": "How can I optimize my daily routine for better productivity. "}
-{"question_id": 1191, "turns": "How to find the best deals on vacation packages. "}
-{"question_id": 1192, "turns": "How can I start an online business. "}
-{"question_id": 1193, "turns": "Can you suggest a few low-cost home improvement projects. "}
-{"question_id": 1204, "turns": "How can I become a better listener and improve my communication with others. "}
-{"question_id": 1206, "turns": "How do I get rid of fruit flies in my kitchen. "}
-{"question_id": 1207, "turns": "How do I make greek yogurt. "}
-{"question_id": 1215, "turns": "Can you explain the differences between Romanticism and Modernism in literature. "}
-{"question_id": 1220, "turns": "How can I tell if someone is lying to me. "}
-{"question_id": 1227, "turns": "Can you explain the difference between a an LLC and a Corporation. "}
-{"question_id": 1228, "turns": "Could you tell me how to join a webinar. "}
-{"question_id": 1230, "turns": "How do I set up parental controls on my phone. "}
-{"question_id": 1233, "turns": "How do I write a good cover letter for a job application. "}
-{"question_id": 1236, "turns": "How do I calculate the sum of a series of numbers. "}
-{"question_id": 1254, "turns": "How does gravity work. "}
-{"question_id": 1261, "turns": "Can you recommend a good live music venue in my area. "}
-{"question_id": 1264, "turns": "How to write a great resume. "}
-{"question_id": 1268, "turns": "How can I improve my communication skills. "}
-{"question_id": 1272, "turns": "How can I use my phone to enhance my productivity. "}
-{"question_id": 1279, "turns": "How can I improve my public speaking skills. "}
-{"question_id": 1280, "turns": "How do I have a successful budget plan. "}
-{"question_id": 1283, "turns": "Can you teach me how to write a business plan. "}
-{"question_id": 1285, "turns": "Can you recommend me a recipe for a special dinner tonight. "}
-{"question_id": 1287, "turns": "How does climate change affect the food production industry. "}
-{"question_id": 1289, "turns": "Can you recommend some books on basic electronics for beginners. "}
-{"question_id": 1290, "turns": "How do I stop my cat from scratching furniture. "}
-{"question_id": 1298, "turns": "How can I learn a new language in 6 months. "}
-{"question_id": 1303, "turns": "Can you recommend some hiking trails in the area. "}
-{"question_id": 1307, "turns": "How can I fix USB ports that don't work in Windows. "}
-{"question_id": 1310, "turns": "Could you tell me some tips for using Microsoft Excel. "}
-{"question_id": 1316, "turns": "How do I find good movie recommendations. "}
-{"question_id": 1318, "turns": "How do I make a good omelet. "}
-{"question_id": 1320, "turns": "How do I use my smartphone to take better photos. "}
-{"question_id": 1324, "turns": "How can I best display my artwork online. "}
-{"question_id": 1326, "turns": "How long can a hummingbird live. "}
-{"question_id": 1327, "turns": "How can I be more mindful on a daily basis. "}
-{"question_id": 1328, "turns": "How can I help my kids with their homework. "}
-{"question_id": 1329, "turns": "How does a mortgage loan work. "}
-{"question_id": 1332, "turns": "Could you help me find some good and healthy dinner recipes for a family of five. "}
-{"question_id": 1333, "turns": "Help me book a flight to Peru. "}
-{"question_id": 1334, "turns": "How do I connect my iPhone to the Apple TV. "}
-{"question_id": 1335, "turns": "How do I remove red wine stains from my carpet. "}
-{"question_id": 1336, "turns": "How do I get rid of a stain on carpets. "}
-{"question_id": 1340, "turns": "How long does it take for a car battery to charge. "}
-{"question_id": 1345, "turns": "How do I register to vote in the upcoming election. "}
-{"question_id": 1349, "turns": "How can I save more money each month. "}
-{"question_id": 1354, "turns": "How do I clean a stained carpet. "}
-{"question_id": 1363, "turns": "How to I cite a source in APA format. "}
-{"question_id": 1367, "turns": "How can I keep track of my monthly bills and expenses. "}
-{"question_id": 1368, "turns": "Help me create a meal plan that\u2019s balanced and nutritious. "}
-{"question_id": 1370, "turns": "How do I make healthy meals on a budget. "}
-{"question_id": 1372, "turns": "How do I write a business plan for a cafe. "}
-{"question_id": 1374, "turns": "How much water do I need to drink everyday. "}
-{"question_id": 1378, "turns": "How can I use meditation to help me relax and reduce stress. "}
-{"question_id": 1380, "turns": "How do I make sure that I am eating the right kind of foods. "}
-{"question_id": 1384, "turns": "How much caffeine is too much. "}
-{"question_id": 1394, "turns": "How do I motivate myself to exercise. "}
-{"question_id": 1395, "turns": "How do I make a budget for my expenses. "}
-{"question_id": 1398, "turns": "How can I reduce stress. "}
-{"question_id": 1416, "turns": "How do I lose 10 pounds in the next two months. "}
-{"question_id": 1418, "turns": "How do I set up a living trust for my family. "}
-{"question_id": 1423, "turns": "Can you give me a list of top ten blogs to follow. "}
-{"question_id": 1426, "turns": "Can you recommend a good fitness plan and diet that can help me lose weight. "}
-{"question_id": 1429, "turns": "Can you give me a list of the advantages and disadvantages of going solar. "}
-{"question_id": 1431, "turns": "How do I write a cover letter that is effective. "}
-{"question_id": 1432, "turns": "How can I organize my workspace to be more productive. "}
-{"question_id": 1434, "turns": "How to fix a leaking faucet. "}
-{"question_id": 1435, "turns": "Can you tell me about the latest news about global warming. "}
-{"question_id": 1436, "turns": "How can I boil an egg perfectly. "}
-{"question_id": 1438, "turns": "How can I estimate how much a car costs. "}
-{"question_id": 1439, "turns": "How do you keep the soil in your garden moist. "}
-{"question_id": 1440, "turns": "How can I make the most out of a long-distance relationship. "}
-{"question_id": 1445, "turns": "How do I increase my website traffic. "}
-{"question_id": 1447, "turns": "Can you explain what the Great Wall of China is. "}
-{"question_id": 1448, "turns": "Can you tell me the three main branches of science. "}
-{"question_id": 1449, "turns": "How do I write a business proposal. "}
-{"question_id": 1450, "turns": "How can I improve my English speaking skills. "}
-{"question_id": 1457, "turns": "How can I invest in the stock market. "}
-{"question_id": 1461, "turns": "How can I make event planning easier. "}
-{"question_id": 1464, "turns": "How do I fix a running toilet. "}
-{"question_id": 1469, "turns": "How long does it take to learn the basics of baking a cake. "}
-{"question_id": 1471, "turns": "How do I fix a clogged sink. "}
-{"question_id": 1472, "turns": "Can you help me plan a weekend getaway in California. "}
-{"question_id": 1479, "turns": "How do I complete the tax forms required for my new business. "}
-{"question_id": 1483, "turns": "How can I learn Spanish quickly. "}
-{"question_id": 1486, "turns": "Give me an example of a romantic comedy movie. "}
-{"question_id": 1487, "turns": "How can I determine the melting point of sugar. "}
-{"question_id": 1488, "turns": "How can I get a better understanding of the stock market. "}
-{"question_id": 1492, "turns": "How can I get a great deal on a used car. "}
-{"question_id": 1496, "turns": "Can you provide me with tips for healthy eating. "}
-{"question_id": 1499, "turns": "How to make a delicious caramel apple pie. "}
-{"question_id": 1504, "turns": "How do I improve my public speaking skills. "}
-{"question_id": 1507, "turns": "How do I make shortbread cookies. "}
-{"question_id": 1513, "turns": "Can you locate a good Chinese restaurant near my house. "}
-{"question_id": 1518, "turns": "Could you explain why the solar eclipse happens. "}
-{"question_id": 1519, "turns": "How is the stock market performing today. "}
-{"question_id": 1520, "turns": "How can I identify a genuine leather product. "}
-{"question_id": 1522, "turns": "How do I read a financial statement. "}
-{"question_id": 1525, "turns": "Can you tell me about the history of World War II. "}
-{"question_id": 1526, "turns": "How can I make money without working in a traditional job. "}
-{"question_id": 1529, "turns": "Can you recommend a good movie I can watch on Netflix. "}
-{"question_id": 1536, "turns": "How can I use a computer to program a robotic arm. "}
-{"question_id": 1537, "turns": "Can you help me build the perfect workout routine. "}
-{"question_id": 1539, "turns": "How does the flow of water affect the economy of a coastal community. "}
-{"question_id": 1550, "turns": "How can I start a blog. "}
-{"question_id": 1552, "turns": "How do I get a job as a software engineer. "}
-{"question_id": 1553, "turns": "How can I recognise phishing emails and avoid being scammed. "}
-{"question_id": 1559, "turns": "How to make a broccoli cheddar quiche. "}
-{"question_id": 1563, "turns": "How can I reduce my risk for cancer. "}
-{"question_id": 1565, "turns": "How do I maintain the battery on my laptop. "}
-{"question_id": 1567, "turns": "Can you let me know what the current temperature is outside. "}
-{"question_id": 1568, "turns": "How has the landscape of Middle Eastern politics changed since the Arab Spring of. "}
-{"question_id": 1577, "turns": "How do I create a website. "}
-{"question_id": 1578, "turns": "How do I bake a cake. "}
-{"question_id": 1579, "turns": "How do I assemble this IKEA shelf. "}
-{"question_id": 1588, "turns": "How to apply for a driver's license. "}
-{"question_id": 1589, "turns": "How do I organize my taxes for the last few years. "}
-{"question_id": 1591, "turns": "How would you go about choosing between a car loan and a personal loan. "}
-{"question_id": 1592, "turns": "How can I help my aging parents stay comfortable and safe at home. "}
-{"question_id": 1599, "turns": "How to write a personalized thank-you note. "}
-{"question_id": 1602, "turns": "How do I troubleshoot my computer if it's not starting up properly. "}
-{"question_id": 1604, "turns": "How can I meditate effectively. "}
-{"question_id": 1605, "turns": "How do I pick the best paint colors for a room. "}
-{"question_id": 1609, "turns": "How do I cite a book in APA style. "}
-{"question_id": 1614, "turns": "How do I use the baking powder in my pantry. "}
-{"question_id": 1615, "turns": "How do you clean a car. "}
-{"question_id": 1616, "turns": "How do I get rid of ants in my house naturally. "}
+{"question_id": 0, "turns": ["I was wondering if you could walk me through the process of setting up a hydroponic garden for herbs. "]}
+{"question_id": 4, "turns": ["What kind of safety devices do I need to install in my house. "]}
+{"question_id": 6, "turns": ["I'm having trouble finding the perfect job. What resources can help me. "]}
+{"question_id": 8, "turns": ["How to make money online. "]}
+{"question_id": 19, "turns": ["What are the environmental benefits of switching to renewable energy sources. "]}
+{"question_id": 21, "turns": ["I'm having trouble getting my printer to work. Is there a way to get it up and running. "]}
+{"question_id": 23, "turns": ["What kind of flowers can I plant in my garden this summer. "]}
+{"question_id": 24, "turns": ["I'm curious about quantum computing. Can you tell me the basics of how it works. "]}
+{"question_id": 29, "turns": ["What questions should I ask when interviewing for a new job. "]}
+{"question_id": 31, "turns": ["How to prepare a romantic dinner for two. "]}
+{"question_id": 32, "turns": ["I want to learn French. How can I effectively learn the language. "]}
+{"question_id": 33, "turns": ["How to Grow Orchids indoors. "]}
+{"question_id": 34, "turns": ["I need help writing a cover letter for a job I'm applying for. "]}
+{"question_id": 36, "turns": ["I'm looking to buy a car, but I don't know which one to get. Can you help me narrow down the choices. "]}
+{"question_id": 37, "turns": ["Can you tell me how to make my favorite kind of cheese souffl\u00e9. "]}
+{"question_id": 38, "turns": ["Give me a step-by-step guide to tie a Windsor knot. "]}
+{"question_id": 41, "turns": ["How do I use my computer to open a PDF file. "]}
+{"question_id": 44, "turns": ["What are the best books to read for someone who is interested in renewable energy. "]}
+{"question_id": 55, "turns": ["How do I make French toast.  "]}
+{"question_id": 56, "turns": ["How do I make a game plan to reach my fitness goals. "]}
+{"question_id": 35, "turns": ["What type of wine pairs well with steak. "]}
+{"question_id": 561, "turns": ["I'm having trouble managing my finances. What are some budgeting tips to make sure I'm not spending more than I should. "]}
+{"question_id": 693, "turns": ["I'm looking to finance a franchise business but I'm not sure what the best loan option is for me. Can you offer any advice. "]}
+{"question_id": 1571, "turns": ["How to set up a home theater. "]}
+{"question_id": 1811, "turns": ["I am looking to invest money and need help understanding the stock market. What types of investments would you suggest. "]}
+{"question_id": 2368, "turns": ["I am really bad at budgeting and keeping track of my finances - how can I do a better job. "]}
+{"question_id": 3102, "turns": ["What are some of the best tips for budgeting and keeping track of finances. "]}
+{"question_id": 3155, "turns": ["What type of investments do you think would be good for me. "]}
+{"question_id": 3228, "turns": ["My son is just starting college, and he needs some help managing his finances. What are the best tips for new college students. "]}
+{"question_id": 4076, "turns": ["How to write a strong resume. "]}
+{"question_id": 4221, "turns": ["What active investment strategies can I use to build a profitable portfolio. "]}
+{"question_id": 4387, "turns": ["I am new to investing and I would like to know what the best investment strategy for me is given my current financial situation. "]}
+{"question_id": 4674, "turns": ["What are the pros and cons of different types of investments. "]}
+{"question_id": 4977, "turns": ["I'm trying to figure out the best way to balance my investments to maximize my total return, can you give me some advice. "]}
+{"question_id": 5436, "turns": ["How do I select the best mutual fund for my investment portfolio. "]}
+{"question_id": 5610, "turns": ["I want to invest some of my money, can you explain what I need to consider when choosing investments. "]}
+{"question_id": 5727, "turns": ["I'm looking to finance my car and I'm trying to find out what the best contractual terms would be for me. What advice can you provide. "]}
+{"question_id": 5786, "turns": ["What are some common banking and finance terms I should know. "]}
+{"question_id": 6435, "turns": ["How do I clean a glass stove top without using harsh chemicals. "]}
+{"question_id": 7178, "turns": ["What are the key points to consider when making an investment in the stock market. "]}
+{"question_id": 138, "turns": ["Can you help me figure out what books would be best suited to a middle-school age student learning physics. "]}
+{"question_id": 316, "turns": ["I'm interested in learning a new language. Which one is best to learn. "]}
+{"question_id": 325, "turns": ["I am learning a new language. Can you recommend any helpful resources. "]}
+{"question_id": 638, "turns": ["I'm interested in learning about Mexican culture, what can you tell me. "]}
+{"question_id": 1098, "turns": ["My toddler has been uninterested in her toys lately. Can you suggest some new ideas for educational and fun toys for her. "]}
+{"question_id": 1534, "turns": ["I'm having trouble learning French, can you give me some tips to help me get started. "]}
+{"question_id": 1590, "turns": ["What are the best online resources for learning a new language. "]}
+{"question_id": 2586, "turns": ["How do I install a graphics card into my computer. "]}
+{"question_id": 2811, "turns": ["How do I know if my child needs special educational services. "]}
+{"question_id": 3447, "turns": ["I am interested in learning more about starting a business. Can you help. "]}
+{"question_id": 3527, "turns": ["I need help learning how to use Excel. What are some good tutorials and resources I should start with. "]}
+{"question_id": 3958, "turns": ["I'm trying to learn French, what are some online resources for learning French. "]}
+{"question_id": 4443, "turns": ["What should I do if I have a bee sting. "]}
+{"question_id": 4602, "turns": ["What are the best online resources for learning a foreign language. "]}
+{"question_id": 4620, "turns": ["I'm interested in learning a new language, which one would you suggest. "]}
+{"question_id": 4769, "turns": ["Is there a way to use a machine learning algorithm to help with data analysis. "]}
+{"question_id": 5034, "turns": ["What are the pros and cons of learning a new language. "]}
+{"question_id": 5268, "turns": ["I'm learning to play guitar and I'm trying to master the Am chord. Can you walk me through how to play it. "]}
+{"question_id": 6145, "turns": ["What are some good books for learning about Ancient Greek culture. "]}
+{"question_id": 6594, "turns": ["I'm learning to play the piano. Can you give me some practice tips. "]}
+{"question_id": 139, "turns": ["What are some recommended tips for healthy meal planning and nutrition. "]}
+{"question_id": 148, "turns": ["How can I prepare a healthy meal for two people in less than 30 minutes. "]}
+{"question_id": 191, "turns": ["What are the health benefits of drinking lemon water. "]}
+{"question_id": 238, "turns": ["How do I make a five-layer cake."]}
+{"question_id": 318, "turns": ["Can you provide me with tips on how to maintain a healthy lifestyle. "]}
+{"question_id": 361, "turns": ["I have been struggling to come up healthy meals for my family during the week. Can you provide some meal ideas. "]}
+{"question_id": 403, "turns": ["What are some easy and healthy dinner recipes for busy weeknights. "]}
+{"question_id": 528, "turns": ["What are the health benefits of turmeric. "]}
+{"question_id": 529, "turns": ["I heard about these new health supplements I can take that will give me more energy, are these legit. "]}
+{"question_id": 576, "turns": ["What are the health benefits of eating ginger. "]}
+{"question_id": 609, "turns": ["What are some healthy meal ideas for me and my kids. "]}
+{"question_id": 624, "turns": ["What does a healthy diet for a college student look like. "]}
+{"question_id": 704, "turns": ["How can I lower my cholesterol levels in a healthy way. "]}
+{"question_id": 755, "turns": ["How can I make a healthier version of my favorite dessert. "]}
+{"question_id": 805, "turns": ["I'm looking for an easy, healthy recipe for a weeknight dinner. What can you suggest. "]}
+{"question_id": 828, "turns": ["What are the health benefits of yoga. "]}
+{"question_id": 831, "turns": ["What are the health benefits of eating almonds. "]}
+{"question_id": 840, "turns": ["How do I make a PowerPoint presentation to present to my boss. "]}
+{"question_id": 842, "turns": ["Can you give me a step-by-step guide to baking a cake. "]}
+{"question_id": 863, "turns": ["How much exercise should an adult do per day to stay healthy. "]}
+{"question_id": 249, "turns": ["How long does it take for a message to travel from the earth to the moon. "]}
+{"question_id": 694, "turns": ["How do I go about obtaining a visa to travel to the UK. "]}
+{"question_id": 860, "turns": ["Where is the best place to travel to in the summer. "]}
+{"question_id": 1312, "turns": ["I want to travel to a great beach in Thailand. What beach should I visit and why. "]}
+{"question_id": 1315, "turns": ["What's the most affordable way to travel across the US by train. "]}
+{"question_id": 2233, "turns": ["Is there any additional information I should know about before traveling to Thailand. "]}
+{"question_id": 2656, "turns": ["How do I treat my wasp sting immediately? "]}
+{"question_id": 2957, "turns": ["What is the best way to tie a bow tie. "]}
+{"question_id": 3025, "turns": ["What are the best ways to save money on travel costs. "]}
+{"question_id": 3561, "turns": ["I'm traveling to a new country, what are the essential items I should bring. "]}
+{"question_id": 3665, "turns": ["How long does it take for light to travel from the Sun to Earth. "]}
+{"question_id": 4068, "turns": ["Should I travel by car or by train when I am going out of town. "]}
+{"question_id": 4332, "turns": ["Are there any good ways to save money on air travel. "]}
+{"question_id": 4709, "turns": ["What are the visa regulations for people traveling to the United States. "]}
+{"question_id": 4825, "turns": ["What type of visa do I need to travel to Brazil. "]}
+{"question_id": 5364, "turns": ["I want to travel. What are the best place to visit this summer. "]}
+{"question_id": 6433, "turns": ["What types of vaccinations do I need if I am traveling to India. "]}
+{"question_id": 6809, "turns": ["What type of visa do I need to travel to Australia. "]}
+{"question_id": 6815, "turns": ["How can I plan a budget for a long-term travel trip. "]}
+{"question_id": 6965, "turns": ["I'm travelling solo in South America soon and I need tips on things like documents to bring, safety tips, and what to expect at the border. Can you help me. "]}
