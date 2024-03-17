@@ -4,6 +4,7 @@ python3 show_result.py --mode [single|pairwise-baseline|pairwise-all]
 """
 import argparse
 import pandas as pd
+pd.set_option('display.expand_frame_repr', False)
 
 def percentile(n):
     def percentile_(x):
@@ -32,13 +33,13 @@ def display_result_single(args):
     # print(df_1.sort_values(by="score", ascending=False))
 
     if args.bench_name == "mt_bench":
-        print("\n########## Second turn ##########")
+        # print("\n########## Second turn ##########")
         df_2 = df[df["turn"] == 2].groupby(["model", "turn"]).mean()
-        print(df_2.sort_values(by="score", ascending=False))
+        # print(df_2.sort_values(by="score", ascending=False))
 
-        print("\n########## Average ##########")
+        # print("\n########## Average ##########")
         df_3 = df[["model", "score"]].groupby(["model"]).mean()
-        print(df_3.sort_values(by="score", ascending=False))
+        # print(df_3.sort_values(by="score", ascending=False))
     return df_1
 
 def display_timing_single(args):
@@ -151,4 +152,5 @@ if __name__ == "__main__":
     res_score = display_result_func(args)
     res_time = display_timing_single(args)
     res_score = res_score.reset_index().set_index('model')
-    print(pd.concat([res_score, res_time], axis=1).drop('turn', axis=1))
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+        print(pd.concat([res_score, res_time], axis=1).drop('turn', axis=1))
