@@ -22,4 +22,4 @@ class CTCDataset(Dataset):
         # get scores
         complexity = self.df.iloc[idx].complexity
         time_criticality = self.df.iloc[idx].time_criticality
-        return embedding, torch.tensor([complexity, time_criticality])
+        return embedding, torch.tensor([complexity, time_criticality], dtype=torch.float32)

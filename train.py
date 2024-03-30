@@ -25,14 +25,14 @@ if __name__ == '__main__':
     # load data
     train_dset = pd.read_json(f'{DATA_PATH}/train.jsonl', lines=True)
     test_dset = pd.read_json(f'{DATA_PATH}/test.jsonl', lines=True)
-    train_dset = CTCDataset(train_dset, model='jinaai/jina-embeddings-v2-small-en')
-    test_dset = CTCDataset(test_dset, model='jinaai/jina-embeddings-v2-small-en')
+    train_dset = CTCDataset(train_dset, model='jinaai/jina-embeddings-v2-base-en')
+    test_dset = CTCDataset(test_dset, model='jinaai/jina-embeddings-v2-base-en')
     train = DataLoader(train_dset, 
                        batch_size=BATCH_SIZE, 
                        num_workers=NUM_WORKERS, 
                        persistent_workers=True)
     test = DataLoader(test_dset, 
-                       batch_size=1, 
+                       batch_size=BATCH_SIZE, 
                        num_workers=NUM_WORKERS, 
                        persistent_workers=True)
 
@@ -56,5 +56,5 @@ if __name__ == '__main__':
                                     RichProgressBar(refresh_rate=3, leave=True),
                                     ]
                             )
-    trainer.fit(model, train_dataloaders=train)
+    trainer.fit(model, train_dataloaders=train, val_dataloaders=test)
     trainer.save_checkpoint(MODEL_SAVE_PATH+f'checkpoint.ckpt')
