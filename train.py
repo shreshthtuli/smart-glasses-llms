@@ -18,7 +18,7 @@ if __name__ == '__main__':
     NUM_WORKERS = 4
     DATA_PATH = f'./data/'
     MODEL_SAVE_PATH = f'./models/{MODEL}/'
-    METRIC = 'train_loss'
+    METRIC = 'val_loss'
 
     shutil.rmtree(f'./logs/{MODEL}', ignore_errors=True)
 
@@ -38,8 +38,8 @@ if __name__ == '__main__':
 
     # instantiate model
     model = eval(MODEL)(params={'input_feat_size': train_dset.get_embedding_size(), 
-                                'num_layers': 2, 
-                                'hidden_feat_size': 256, 
+                                'num_layers': 3, 
+                                'hidden_feat_size': 512, 
                                 'dropout': 0.1})
 
     # lightning trainer
@@ -48,7 +48,7 @@ if __name__ == '__main__':
                             devices="auto",
                             num_sanity_val_steps=0,
                             default_root_dir=f'./logs/{MODEL}',
-                            max_epochs=100,
+                            max_epochs=200,
                             enable_checkpointing=False,
                             callbacks=[EarlyStopping(monitor=METRIC,
                                                     patience=5, verbose=True,

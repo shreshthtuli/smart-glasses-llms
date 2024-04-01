@@ -10,7 +10,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Script parameters')
 
     # Add arguments
-    parser.add_argument('--model', type=str, default='Foundation', help='Model type')
+    parser.add_argument('--model', type=str, default='FCNNet', help='Model type')
     parser.add_argument('--num_trials', type=int, default=50, help='Number of optuna trials to run')
     parser.add_argument('--batch_size', type=int, default=16, help='Number of samples in each mini-batch during neural network trainins')
     parser.add_argument('--cuda_device', default=0, type=int, help='Cuda device rank to train on')

@@ -17,7 +17,7 @@ class LightningTemplate(lightpl.LightningModule):
         self.mse = MeanSquaredError()
         self.pcc = PearsonCorrCoef(num_outputs=2)
         self.ccc = ConcordanceCorrCoef(num_outputs=2)
-        self.krc = KendallRankCorrCoef()
+        self.krc = KendallRankCorrCoef(num_outputs=2)
         self.ev  = ExplainedVariance()
         self.model = None
 
