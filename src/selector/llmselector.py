@@ -1,7 +1,7 @@
 from ..llmnet import *
 from ..dataset import CTCDataset
 from .templateselector import TemplateSelector
-from glob import glob
+from rich.progress import track
 import pandas as pd
 import numpy as np
 
@@ -27,10 +27,11 @@ class LLMSelector(TemplateSelector):
         return selection
 
     def select(self):
+        print('Running method', self.__class__.__name__)
         for dset in [self.train_dset, self.test_dset]:
             selections = []; times = []; scores = []
             torch_dset = CTCDataset(dset, model='jinaai/jina-embeddings-v2-base-en')
-            for index, row in dset.iterrows():
+            for index, row in track(dset.iterrows(), total=len(dset)):
                 embedding, _ = torch_dset.__getitem__(index)
                 output = self.model(embedding.unsqueeze(0))
                 complexity, criticality = output.detach().tolist()[0]
