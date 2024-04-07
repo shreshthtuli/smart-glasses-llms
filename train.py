@@ -53,12 +53,11 @@ if __name__ == '__main__':
 
     def objective(trial: optuna.trial.Trial):
         if args.model == 'FCNNet':
-            input_feat_size = trial.suggest_categorical("input_feat_size", [train_dset.get_embedding_size()])
             num_layers = trial.suggest_categorical("num_layers", [2, 3, 4])
             hidden_feat_size = trial.suggest_categorical("hidden_feat_size", [256, 512, 1024])
             dropout = trial.suggest_categorical("dropout", [0.1, 0.3, 0.5])
-            params = dict(num_layers=num_layers, hidden_feat_size=hidden_feat_size, dropout=dropout,
-                          input_feat_size=input_feat_size)
+            params = dict(num_layers=num_layers, hidden_feat_size=hidden_feat_size, dropout=dropout)
+        params["input_feat_size"] = train_dset.get_embedding_size()
 
         # instantiate model
         model = eval(MODEL)(params=params)
