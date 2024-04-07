@@ -153,4 +153,4 @@ if __name__ == "__main__":
     res_time = display_timing_single(args)
     res_score = res_score.reset_index().set_index('model')
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-        print(pd.concat([res_score, res_time], axis=1).drop('turn', axis=1))
+        print(pd.concat([res_score, res_time], axis=1).drop('turn', axis=1).sort_values('score', ascending=False))
