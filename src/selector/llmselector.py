@@ -8,7 +8,7 @@ import numpy as np
 class LLMSelector(TemplateSelector):
     def __init__(self, MODEL_NAME, MODEL_PATH, DATA_PATH, percentile=0.5):
         super().__init__(DATA_PATH)
-        self.model = eval(MODEL_NAME).load_from_checkpoint(checkpoint_path=f'{MODEL_PATH}/checkpoint.ckpt')
+        self.model = eval(MODEL_NAME).load_from_checkpoint(checkpoint_path=f'{MODEL_PATH}/{MODEL_NAME}/checkpoint.ckpt')
         self.percentile = percentile
         self.select()
 
@@ -33,7 +33,7 @@ class LLMSelector(TemplateSelector):
             torch_dset = CTCDataset(dset, model='jinaai/jina-embeddings-v2-base-en')
             for index, row in track(dset.iterrows(), total=len(dset)):
                 embedding, _ = torch_dset.__getitem__(index)
-                output = self.model(embedding.unsqueeze(0))
+                output = self.model.predict(embedding.unsqueeze(0))
                 complexity, criticality = output.detach().tolist()[0]
                 selection = self.qos_selector(complexity, criticality)
                 time = row[selection+'_time']

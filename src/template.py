@@ -52,8 +52,7 @@ class LightningTemplate(lightpl.LightningModule):
         outputs = self.forward(inputs)
         self.metric_stack(preds=outputs, gts=labels, subset='test')
 
-    def predict(self, batch):
-        inputs, _ = batch
+    def predict(self, inputs):
         outputs = self.forward(inputs)
         return outputs.detach()
 

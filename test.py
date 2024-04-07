@@ -6,14 +6,17 @@ from src.plotter import Plotter
 
 if __name__ == '__main__':
     args = parse_args()
-    MODEL = args.model
     DATA_PATH = f'./data/'
-    MODEL_SAVE_PATH = f'./models/{MODEL}/'
+    MODEL_SAVE_PATH = f'./models/'
 
     plotter = Plotter()
 
-    selector = LLMSelector(MODEL, MODEL_SAVE_PATH, DATA_PATH)
-    plotter.add_results('LLM', selector.train_dset, selector.test_dset)
+    selector = LLMSelector('EENet', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('EE', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = LLMSelector('FCNNet', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('FCN', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
     selector = RandomSelector(DATA_PATH)

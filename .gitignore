@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 modify_timing.ipynb
 logs/
+final_logs/
