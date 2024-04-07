@@ -5,7 +5,8 @@ Next steps:
 - [x] Add k-fold cross validation 
 - [x] Add optuna 
 - [x] Develop Early-Exit Model 
-- [ ] Modify timings and add inference time to latency
-- [ ] Visualization of predictions
+- [x] Modify timings
+- [x] Add inference time to latency
+- [ ] Visualization of predictions and classification scores
 - [ ] Implement Baselines.
 - [ ] Sensitivity analysis (20% threshold, QoS weights)

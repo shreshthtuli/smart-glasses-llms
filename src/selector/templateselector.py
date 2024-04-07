@@ -53,6 +53,6 @@ class TemplateSelector():
         self.test_dset = test_dset
 
     def get_means(self):
-        return self.test_dset.score.mean(), self.test_dset.time.mean()
+        return self.test_dset.score.mean(), self.test_dset.time.mean(), self.test_dset.qos.mean()
         
 
