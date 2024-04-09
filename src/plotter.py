@@ -28,17 +28,16 @@ class Plotter():
                 fig, ax = plt.subplots(figsize=(4, 4))
                 ax.set_ylabel(result.title())
                 sns.violinplot(data=pd.concat(dset.values(), ignore_index=True),
-                               x='method', y=result, ax=ax)
+                               x='method', y=result, ax=ax, native_scale=True)
                 fig.savefig(f'{self.plot_path}/{title}/{result}.pdf')   
                 fig, ax = plt.subplots(figsize=(10, 4))             
                 ax.set_ylabel(result.title())
                 sns.violinplot(data=pd.concat(dset.values(), ignore_index=True),
-                               x='method', y=result, hue='selection', ax=ax)
-                
+                               x='method', y=result, hue='selection', ax=ax, native_scale=True)
                 fig.savefig(f'{self.plot_path}/{title}/{result}_selection.pdf')
                 fig, ax = plt.subplots(figsize=(10, 4))
                 ax.set_ylabel(result.title())
                 sns.violinplot(data=pd.concat(dset.values(), ignore_index=True),
-                               x='method', y=result, hue='bench', ax=ax)
+                               x='method', y=result, hue='bench', ax=ax, native_scale=True)
                 fig.savefig(f'{self.plot_path}/{title}/{result}_bench.pdf')
         

@@ -7,11 +7,14 @@ import pandas as pd
 import numpy as np
 from pprint import pprint
 from time import time as tt
+import torch
+torch.manual_seed(42)
 
 class LLMSelector(TemplateSelector):
     def __init__(self, MODEL_NAME, MODEL_PATH, DATA_PATH, percentile=0.5):
         super().__init__(DATA_PATH)
         self.model = eval(MODEL_NAME).load_from_checkpoint(checkpoint_path=f'{MODEL_PATH}/{MODEL_NAME}/checkpoint.ckpt')
+        self.model.eval()
         self.percentile = percentile
         self.select()
 
@@ -23,9 +26,9 @@ class LLMSelector(TemplateSelector):
                                      0.2*self.train_dset[llm_name+'_time'].std())
             p_score[llm_name] = gauss(self.train_dset[llm_name+'_score'].quantile(self.percentile), 
                                       0.2*self.train_dset[llm_name+'_score'].std())
-        max_time = max([p_time[llm_name] for llm_name in self.all_llm_names])
-        min_time = min([p_time[llm_name] for llm_name in self.all_llm_names])
-        qos = [complexity * 10 * ((p_score[llm_name] - 1) / 9) + 
+        max_time = max([self.train_dset[llm_name+'_time'].max() for llm_name in self.all_llm_names])
+        min_time = min([self.train_dset[llm_name+'_time'].min() for llm_name in self.all_llm_names])
+        qos = [complexity * 10 * ((p_score[llm_name] - 1) / 9) * 2 + 
                criticality * 10 * (1 - ((p_time[llm_name] - min_time) / (max_time - min_time))) 
                 for llm_name in self.all_llm_names]
         selection = self.all_llm_names[np.argmax(qos)]
@@ -41,7 +44,7 @@ class LLMSelector(TemplateSelector):
         max_time = max([self.train_dset[llm_name+'_time'].median() for llm_name in self.all_llm_names])
         min_time = min([self.train_dset[llm_name+'_time'].median() for llm_name in self.all_llm_names])
         for dset in [self.train_dset, self.test_dset]:
-            selections = []; times = []; scores = []; qos = []
+            selections = []; times = []; scores = []; qos = []; stimes = []
             pred_complexity = []; pred_time_criticality = []
             torch_dset = CTCDataset(dset, model='jinaai/jina-embeddings-v2-base-en')
             for index, row in track(dset.iterrows(), total=len(dset)):
@@ -57,9 +60,11 @@ class LLMSelector(TemplateSelector):
                     row['time_criticality'] * (time-min_time)/(max_time-min_time)
                 selections.append(selection); times.append(time); scores.append(score); qos.append(q)
                 pred_complexity.append(complexity); pred_time_criticality.append(criticality)
+                stimes.append(selection_time)
             dset.insert(len(dset.columns), 'pred_complexity', pred_complexity)
             dset.insert(len(dset.columns), 'pred_time_criticality', pred_time_criticality)            
             dset.insert(len(dset.columns), 'selection', selections)
+            dset.insert(len(dset.columns), 'selection_time', stimes)
             dset.insert(len(dset.columns), 'time', times)
             dset.insert(len(dset.columns), 'score', scores)
             dset.insert(len(dset.columns), 'qos', qos)

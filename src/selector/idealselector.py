@@ -28,7 +28,7 @@ class IdealSelector(TemplateSelector):
         max_time = max([self.train_dset[llm_name+'_time'].median() for llm_name in self.all_llm_names])
         min_time = min([self.train_dset[llm_name+'_time'].median() for llm_name in self.all_llm_names])
         for dset in [self.train_dset, self.test_dset]:
-            selections = []; times = []; scores = []; qos = []
+            selections = []; times = []; scores = []; qos = []; stimes = []
             for index, row in track(dset.iterrows(), total=len(dset)):
                 start = tt()
                 selection = self.ideal_qos_selector(row)
@@ -38,8 +38,9 @@ class IdealSelector(TemplateSelector):
                 q = row['complexity'] * (score-1)/9 + \
                     row['time_criticality'] * (time-min_time)/(max_time-min_time)
                 selections.append(selection); times.append(time); scores.append(score)
-                qos.append(q)
+                qos.append(q); stimes.append(selection_time)
             dset.insert(len(dset.columns), 'selection', selections)
+            dset.insert(len(dset.columns), 'selection_time', stimes)
             dset.insert(len(dset.columns), 'time', times)
             dset.insert(len(dset.columns), 'score', scores)
             dset.insert(len(dset.columns), 'qos', qos)

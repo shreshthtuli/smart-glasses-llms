@@ -53,7 +53,8 @@ class LightningTemplate(lightpl.LightningModule):
         self.metric_stack(preds=outputs, gts=labels, subset='test')
 
     def predict(self, inputs):
-        outputs = self.forward(inputs)
+        with torch.no_grad():
+            outputs = self.forward(inputs)
         return outputs.detach()
 
     def configure_optimizers(self):

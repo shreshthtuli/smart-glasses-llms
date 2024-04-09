@@ -3,6 +3,7 @@ from src.utils import get_cuda_device
 import torch 
 from torch import nn
 from torch.nn import Transformer
+torch.manual_seed(42)
 
 class EENet(LightningTemplate):
     def __init__(self, params=None):
@@ -39,7 +40,8 @@ class EENet(LightningTemplate):
                 nn.Linear(self.linear_hidden_size, 1), nn.Sigmoid()
             ))
             self.classifier.append(nn.Sequential(
-                nn.Linear(self.linear_hidden_size + 1, 1), nn.Sigmoid()
+                nn.Linear(self.linear_hidden_size + 1, self.linear_hidden_size), nn.LeakyReLU(),
+                nn.Linear(self.linear_hidden_size, 1), nn.Sigmoid()
             ))
         self.save_hyperparameters()
 
@@ -67,11 +69,14 @@ class EENet(LightningTemplate):
         complexity, criticality_results = self.forward(inputs)
         c_loss = nn.functional.mse_loss(complexity.view(-1), labels[:, 0])
         t_loss = 0; e_loss = 0
-        final_mse = nn.functional.mse_loss(criticality_results[-1][0].detach().view(-1), labels[:, 1], reduce=False)
-        for pred, cl in criticality_results:
+        # print("pred complexity", complexity.view(-1).detach().numpy())
+        # print("complexity", labels[:, 0].numpy())
+        for i, (pred, cl) in enumerate(criticality_results):
             t_loss += nn.functional.mse_loss(pred.view(-1), labels[:, 1])
-            gt_cl = nn.functional.mse_loss(pred.detach().view(-1), labels[:, 1], reduce=False) < (1.2 * final_mse)
+            gt_cl = torch.round(pred.detach().view(-1) * 5) == (labels[:, 1]*5) # same or neighboring class (1 to 10)
             e_loss += nn.functional.binary_cross_entropy(cl.view(-1), gt_cl.type(torch.float))
+            # print(f"{i} pred criticality", pred.view(-1).detach().numpy(), cl.view(-1).detach().numpy())
+            # print(f"{i} criticality", labels[:, 1].numpy(), gt_cl.numpy())
         loss = c_loss + t_loss + e_loss
         return loss 
     
@@ -98,16 +103,17 @@ class EENet(LightningTemplate):
 
     def predict(self, inputs):
         outputs = []
-        for embedding in inputs:
-            complexity = self.complexity(embedding)
-            encoded = self.criticality_encoder(embedding)
-            for i in range(len(self.criticality)):
-                cl = self.classifier[i](torch.cat([complexity, self.criticality[i](encoded)]))
-                if i != len(self.criticality)-1 and cl.item() <= 0.5:
-                    continue
-                criticality = self.exit[i](self.criticality[i](encoded))
-                break
-            outputs.append(torch.tensor([complexity, criticality]))
+        with torch.no_grad():
+            for embedding in inputs:
+                complexity = self.complexity(embedding)
+                encoded = self.criticality_encoder(embedding)
+                for i in range(len(self.criticality)):
+                    cl = self.classifier[i](torch.cat([complexity, self.criticality[i](encoded)]))
+                    if i != len(self.criticality)-1 and cl.item() <= 0.5:
+                        continue
+                    criticality = self.exit[i](self.criticality[i](encoded))
+                    break
+                outputs.append(torch.tensor([complexity, criticality]))
         return torch.stack(outputs).detach()
     
     def configure_optimizers(self):

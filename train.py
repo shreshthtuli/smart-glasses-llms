@@ -4,7 +4,7 @@ import lightning as pl
 from lightning.fabric import Fabric, seed_everything
 from lightning.fabric.loggers import TensorBoardLogger
 from lightning.pytorch.callbacks.early_stopping import EarlyStopping
-from lightning.pytorch.callbacks import RichProgressBar
+from lightning.pytorch.callbacks import RichProgressBar, ModelCheckpoint
 
 from sklearn.model_selection import train_test_split
 
@@ -72,19 +72,24 @@ if __name__ == '__main__':
         # instantiate model
         model = eval(MODEL)(params=params)
 
+        patience = 50 if args.model == 'EENet' else 5
         trainer = pl.Trainer(num_sanity_val_steps=0,
-                             max_epochs=200,
+                             deterministic=True,
                              accelerator=get_cuda_device(),
-                             enable_checkpointing=False,
                              default_root_dir=f'./logs/{MODEL}',
                              callbacks=[EarlyStopping(monitor=METRIC,
-                                                      patience=5, verbose=True,
+                                                      patience=patience, 
+                                                      verbose=True,
                                                       mode="min"),
-                                            RichProgressBar(refresh_rate=3, leave=False),
-                                            PyTorchLightningPruningCallback(trial, monitor="val_loss")]
-                                            )
+                                        ModelCheckpoint(f'./logs/{MODEL}',
+                                                        filename='best_model',
+                                                        monitor=METRIC, 
+                                                        save_top_k=1),
+                                        RichProgressBar(refresh_rate=3, leave=False),
+                                        PyTorchLightningPruningCallback(trial, monitor="val_loss")]
+                                        )
         trainer.fit(model, train_dataloaders=train, val_dataloaders=val)
-        results = trainer.validate(model=model, dataloaders=val)[0]
+        results = trainer.validate(ckpt_path='best', dataloaders=val)[0]
         if trial.number == 0 or results[METRIC] <= trial.study.best_value:
             trainer.save_checkpoint(MODEL_SAVE_PATH+f'checkpoint.ckpt')
         return results[METRIC]

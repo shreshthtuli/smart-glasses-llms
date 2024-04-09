@@ -44,7 +44,7 @@ class TemplateSelector():
                     col_time.append(proc_time)
                     sco = all_judgements[bench_name][llm_name]
                     sco = sco[sco['question_id'] == row['question_id']].reset_index()
-                    col_score.append(sco.iloc[0]['score'])
+                    col_score.append(sco.iloc[0]['score'] if sco.iloc[0]['score'] > 0 else 0)
                 dset.insert(len(dset.columns), llm_name+'_time', col_time)
                 dset.insert(len(dset.columns), llm_name+'_score', col_score)
         self.all_bench_names = all_bench_names
@@ -53,6 +53,6 @@ class TemplateSelector():
         self.test_dset = test_dset
 
     def get_means(self):
-        return self.test_dset.score.mean(), self.test_dset.time.mean(), self.test_dset.qos.mean()
+        return self.test_dset.score.mean(), self.test_dset.time.mean(), self.test_dset.qos.mean(), self.test_dset.selection_time.mean()
         
 
