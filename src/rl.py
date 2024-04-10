@@ -105,7 +105,7 @@ class DQNPolicy():
                                sampler=SamplerWithoutReplacement())
     
     def initialize_optimizer(self):
-        self.optim = Adam(self.loss.parameters(), lr=0.02)
+        self.optim = Adam(self.loss.parameters(), lr=0.002)
         self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             self.optim, self.collector.total_frames, 0.0
         )
