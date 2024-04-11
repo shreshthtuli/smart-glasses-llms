@@ -4,17 +4,18 @@ from torchrl.envs import EnvBase
 from torchrl.data import OneHotDiscreteTensorSpec, UnboundedContinuousTensorSpec, \
     CompositeSpec, BoundedTensorSpec
 from torchrl.modules import EGreedyModule, MLP, QValueModule, ProbabilisticActor, \
-    TanhNormal, ValueOperator
+    TanhNormal, ValueOperator, SafeModule, SafeSequential
 from tensordict import TensorDict
 from tensordict.nn import TensorDictModule, TensorDictSequential
 from tensordict.nn.distributions import NormalParamExtractor
 from torchrl.collectors import SyncDataCollector
 from torchrl.data import LazyTensorStorage, ReplayBuffer
 from torchrl.data.replay_buffers.samplers import SamplerWithoutReplacement
-from torchrl.objectives import DQNLoss, SoftUpdate, ClipPPOLoss
+from torchrl.objectives import DQNLoss, SoftUpdate, ClipPPOLoss, SACLoss, DDPGLoss
 from torchrl.objectives.value import GAE
 from torchrl.record.loggers.tensorboard import TensorboardLogger
 from torchrl.envs.utils import ExplorationType, set_exploration_type
+from tensordict.nn import InteractionType
 
 from torch.optim import Adam
 from torch import nn
@@ -202,4 +203,95 @@ class PPOPolicy(DQNPolicy):
                                 loss_critic_type='smooth_l1'
                                 )
         self.initialize_optimizer()
+        self.policy
+
+class SACPolicy(DQNPolicy):
+    def __init__(self, env:SmartGlassesEnvironment):
+        self.env = env
+        actor_net = nn.Sequential(
+            nn.LazyLinear(64),
+            nn.Tanh(),
+            nn.LazyLinear(64),
+            nn.Tanh(),
+            nn.LazyLinear(2 * self.env.action_spec.shape[-1]),
+            NormalParamExtractor(),
+        )
+        policy_module = TensorDictModule(
+            actor_net, in_keys=["observation"], out_keys=["loc", "scale"]
+        )
+        self.policy = ProbabilisticActor(
+            module=policy_module,
+            spec=self.env.action_spec,
+            in_keys=["loc", "scale"],
+            distribution_class=TanhNormal,
+            default_interaction_type=InteractionType.RANDOM,
+            return_log_prob=True
+        )
+        qvalue_net = MLP(
+            num_cells=[64, 64],
+            out_features=1,
+        )
+        self.qvalue = ValueOperator(
+            module=qvalue_net,
+            in_keys=["action", "observation"],
+        )
+        self.initialize_collector()
+        self.policy(env.reset())
+        td = env.reset(); td.set("action", torch.tensor(env.action_spec.rand()))
+        self.qvalue(td)
+        self.loss = SACLoss(actor_network=self.policy,
+                                qvalue_network=self.qvalue,
+                                num_qvalue_nets=2,
+                                loss_function="smooth_l1",
+                                delay_actor=False,
+                                delay_qvalue=True,
+                                )
+        self.loss.make_value_estimator(gamma=0.99)
+        self.update = SoftUpdate(self.loss, eps=0.99)
+        self.initialize_optimizer()
+        self.policy
+    
+class DDPGPolicy(DQNPolicy):
+    def __init__(self, env:SmartGlassesEnvironment):
+        self.env = env
+        actor_net = nn.Sequential(
+            nn.LazyLinear(64),
+            nn.Tanh(),
+            nn.LazyLinear(64), 
+            nn.Tanh(),
+            nn.LazyLinear(2 * self.env.action_spec.shape[-1]),
+            NormalParamExtractor(),
+        )
+        policy_module = TensorDictModule(
+            actor_net, in_keys=["observation"], out_keys=["loc", "scale"]
+        )
+        self.policy = ProbabilisticActor(
+            module=policy_module,
+            spec=self.env.action_spec,
+            in_keys=["loc", "scale"],
+            distribution_class=TanhNormal,
+            default_interaction_type=InteractionType.RANDOM,
+            return_log_prob=True
+        )
+        qvalue_net = MLP(
+            num_cells=[64, 64],
+            out_features=1,
+        )
+        self.qvalue = ValueOperator(
+            module=qvalue_net,
+            in_keys=["action", "observation"],
+        )
+        self.initialize_collector()
+        self.policy(env.reset())
+        td = env.reset(); td.set("action", torch.tensor(env.action_spec.rand()))
+        self.qvalue(td)
+        self.loss = DDPGLoss(actor_network=self.policy,
+                             value_network=self.qvalue,
+                             loss_function="smooth_l1",
+                             delay_actor=True,
+                             delay_value=True,
+                            )
+        self.loss.make_value_estimator(gamma=0.9)
+        self.initialize_optimizer()
+        self.optim = Adam(self.loss.parameters(), lr=1e-7)
         self.policy

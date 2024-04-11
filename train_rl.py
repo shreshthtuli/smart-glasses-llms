@@ -2,7 +2,7 @@ from torchrl.envs.utils import check_env_specs
 from torchrl.envs import StepCounter, TransformedEnv
 
 from src.utils import parse_args
-from src.rl import SmartGlassesEnvironment, DQNPolicy, PPOPolicy
+from src.rl import *
 
 import pickle
 import shutil

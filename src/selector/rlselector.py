@@ -22,6 +22,7 @@ class RLSelector(TemplateSelector):
         self.model = eval(MODEL_NAME)(self.environment)
         with open(f'{MODEL_PATH}/{MODEL_NAME}/model.rl', 'rb') as handle:
             self.model.policy = pickle.load(handle)
+        self.model_name = MODEL_NAME
         self.select()
 
     def rl_selector(self, embedding):
@@ -31,7 +32,7 @@ class RLSelector(TemplateSelector):
         return selection
 
     def select(self):
-        print('Running method', self.__class__.__name__)
+        print('Running method', self.__class__.__name__, 'with', self.model_name)
         max_time = max([self.train_dset[llm_name+'_time'].median() for llm_name in self.all_llm_names])
         min_time = min([self.train_dset[llm_name+'_time'].median() for llm_name in self.all_llm_names])
         for dset in [self.train_dset, self.test_dset]:

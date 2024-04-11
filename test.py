@@ -15,6 +15,26 @@ if __name__ == '__main__':
 
     plotter = Plotter()
 
+    selector = RandomSelector(DATA_PATH)
+    plotter.add_results('Random', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = RLSelector('DDPGPolicy', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('DDPG', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = RLSelector('PPOPolicy', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('PPO', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = RLSelector('DQNPolicy', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('DQN', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = RLSelector('SACPolicy', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('SAC', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
     selector = LLMSelector('EENet', MODEL_SAVE_PATH, DATA_PATH)
     plotter.add_results('EE', selector.train_dset, selector.test_dset)
     print(selector.get_means())
@@ -23,20 +43,8 @@ if __name__ == '__main__':
     plotter.add_results('FCN', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
-    selector = RLSelector('DQNPolicy', MODEL_SAVE_PATH, DATA_PATH)
-    plotter.add_results('DQN', selector.train_dset, selector.test_dset)
-    print(selector.get_means())
-
-    selector = RLSelector('PPOPolicy', MODEL_SAVE_PATH, DATA_PATH)
-    plotter.add_results('PPO', selector.train_dset, selector.test_dset)
-    print(selector.get_means())
-
-    selector = RandomSelector(DATA_PATH)
-    plotter.add_results('Random', selector.train_dset, selector.test_dset)
-    print(selector.get_means())
-
     selector = IdealSelector(DATA_PATH)
-    plotter.add_results('Ideal', selector.train_dset, selector.test_dset)
+    plotter.add_results('Oracle', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
     plotter.plot_scores_times()
