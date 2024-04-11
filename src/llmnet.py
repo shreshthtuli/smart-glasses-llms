@@ -154,3 +154,149 @@ class FCNNet(LightningTemplate):
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=1e-5)
     
+class BranchyNet(LightningTemplate):
+    def __init__(self, params=None):
+        super().__init__()
+        self.input_feat_size = params['input_feat_size']
+        self.linear_hidden_size = params['linear_hidden_size']
+        self.num_exits = params['num_exits']
+        self.encoder = nn.Sequential(
+                nn.Linear(self.input_feat_size, self.linear_hidden_size), nn.LeakyReLU(),
+            )
+        self.predictor, self.exit, self.classifier = [], [], []
+        for _ in range(self.num_exits):
+            self.predictor.append(nn.Sequential(
+                nn.Linear(self.linear_hidden_size, self.linear_hidden_size), nn.LeakyReLU(),
+                nn.Linear(self.linear_hidden_size, self.linear_hidden_size), nn.LeakyReLU(),
+            ))
+            self.exit.append(nn.Sequential(
+                nn.Linear(self.linear_hidden_size, 2), nn.Sigmoid()
+            ))
+            self.classifier.append(nn.Sequential(
+                nn.Linear(self.linear_hidden_size, self.linear_hidden_size), nn.LeakyReLU(),
+                nn.Linear(self.linear_hidden_size, 1), nn.Sigmoid()
+            ))
+        self.save_hyperparameters()
+
+    def forward(self, embedding):
+        encoded = self.encoder(embedding)
+        results = []
+        for i in range(len(self.predictor)):
+            predictor = self.predictor[i](encoded)
+            pred = self.exit[i](predictor)
+            cl = self.classifier[i](predictor)
+            results.append((pred, cl))
+        return results
+
+    def step(self, batch):
+        inputs, labels = batch
+        results = self.forward(inputs)
+        p_loss = 0; e_loss = 0
+        for _, (pred, cl) in enumerate(results):
+            p_loss += nn.functional.mse_loss(pred, labels)
+            gt_cl = torch.round(pred.detach() * 5) == (labels*5) # same or neighboring class (1 to 10)
+            gt_cl = torch.all(gt_cl, dim=1)
+            e_loss += nn.functional.binary_cross_entropy(cl.view(-1), gt_cl.type(torch.float))
+        loss = p_loss + e_loss
+        return loss 
+    
+    def training_step(self, batch):
+        loss = self.step(batch)
+        inputs, labels = batch
+        self.log("train_loss", loss, on_epoch=True, logger=True)
+        outputs = self.predict(inputs)
+        self.metric_stack(preds=outputs, gts=labels, subset='train')
+        return loss
+
+    def validation_step(self, batch):
+        loss = self.step(batch)
+        inputs, labels = batch
+        self.log("val_loss", loss, on_epoch=True, logger=True)
+        outputs = self.predict(inputs)
+        self.metric_stack(preds=outputs, gts=labels, subset='valid')
+        return loss
+
+    def test_step(self, batch):
+        inputs, labels = batch
+        outputs = self.predict(inputs)
+        self.metric_stack(preds=outputs, gts=labels, subset='test')
+
+    def predict(self, inputs):
+        outputs = []
+        with torch.no_grad():
+            for embedding in inputs:
+                encoded = self.encoder(embedding)
+                for i in range(len(self.predictor)):
+                    cl = self.classifier[i](self.predictor[i](encoded))
+                    if i != len(self.predictor)-1 and cl.item() <= 0.5:
+                        continue
+                    pred = self.exit[i](self.predictor[i](encoded))
+                    break
+                outputs.append(pred)
+        return torch.stack(outputs).detach()
+    
+    def configure_optimizers(self):
+        return torch.optim.Adam(self.parameters(), lr=2e-5)
+    
+class ZTWNet(BranchyNet):
+    def __init__(self, params=None):
+        super().__init__(params)
+        self.input_feat_size = params['input_feat_size']
+        self.linear_hidden_size = params['linear_hidden_size']
+        self.num_exits = params['num_exits']
+        self.encoder = nn.Sequential(
+                nn.Linear(self.input_feat_size, self.linear_hidden_size), nn.LeakyReLU(),
+            )
+        self.predictor, self.exit, self.classifier = [], [], []
+        for i in range(self.num_exits):
+            self.predictor.append(nn.Sequential(
+                nn.Linear(self.linear_hidden_size, self.linear_hidden_size), nn.LeakyReLU(),
+                nn.Linear(self.linear_hidden_size, self.linear_hidden_size), nn.LeakyReLU(),
+            ))
+            self.exit.append(nn.Sequential(
+                nn.Linear(self.linear_hidden_size + 2, 2), nn.Sigmoid()
+            ))
+            self.classifier.append(nn.Sequential(
+                nn.Linear(self.linear_hidden_size, self.linear_hidden_size), nn.LeakyReLU(),
+                nn.Linear(self.linear_hidden_size, 1), nn.Sigmoid()
+            ))
+        self.save_hyperparameters()
+
+    def forward(self, embedding):
+        encoded = self.encoder(embedding)
+        results = []; prev_pred = torch.zeros((encoded.shape[0], 2))
+        for i in range(len(self.predictor)):
+            predictor = self.predictor[i](encoded)
+            pred = self.exit[i](torch.cat([predictor, prev_pred], dim=1))
+            prev_pred = pred.detach()
+            cl = self.classifier[i](predictor)
+            results.append((pred, cl))
+        return results
+
+    def step(self, batch):
+        inputs, labels = batch
+        results = self.forward(inputs)
+        p_loss = 0; e_loss = 0
+        for _, (pred, cl) in enumerate(results):
+            p_loss += nn.functional.mse_loss(pred, labels)
+            gt_cl = torch.round(pred.detach() * 5) == (labels*5) # same or neighboring class (1 to 10)
+            gt_cl = torch.all(gt_cl, dim=1)
+            e_loss += nn.functional.binary_cross_entropy(cl.view(-1), gt_cl.type(torch.float))
+        loss = p_loss + e_loss
+        return loss 
+
+    def predict(self, inputs):
+        outputs = []
+        with torch.no_grad():
+            for embedding in inputs:
+                encoded = self.encoder(embedding)
+                prev_pred = torch.zeros(2)
+                for i in range(len(self.predictor)):
+                    predictor = self.predictor[i](encoded)
+                    cl = self.classifier[i](predictor)
+                    pred = self.exit[i](torch.cat([predictor, prev_pred], dim=0))
+                    prev_pred = pred.detach()
+                    if i == len(self.predictor)-1 or cl.item() > 0.5:
+                        break
+                outputs.append(pred)
+        return torch.stack(outputs).detach()

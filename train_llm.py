@@ -12,7 +12,7 @@ from optuna.integration import PyTorchLightningPruningCallback
 
 from src.utils import parse_args, get_cuda_device
 from src.dataset import CTCDataset
-from src.llmnet import FCNNet, EENet
+from src.llmnet import *
 
 from rich.progress import track
 
@@ -67,6 +67,14 @@ if __name__ == '__main__':
             params = dict(n_heads=n_heads, transformer_layers=transformer_layers,
                           linear_hidden_size=linear_hidden_size, num_exits=num_exits,
                           transformer_hidden_size=transformer_hidden_size, dropout=dropout)        
+        if args.model == 'BranchyNet':
+            linear_hidden_size = trial.suggest_categorical("linear_hidden_size", [32, 64, 128, 256])
+            num_exits = trial.suggest_categorical("num_exits", [4])
+            params = dict(linear_hidden_size=linear_hidden_size, num_exits=num_exits)
+        if args.model == 'ZTWNet':
+            linear_hidden_size = trial.suggest_categorical("linear_hidden_size", [32, 64, 128, 256])
+            num_exits = trial.suggest_categorical("num_exits", [4])
+            params = dict(linear_hidden_size=linear_hidden_size, num_exits=num_exits)           
         params["input_feat_size"] = train_dset.get_embedding_size()
 
         # instantiate model

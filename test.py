@@ -35,6 +35,14 @@ if __name__ == '__main__':
     plotter.add_results('SAC', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
+    selector = LLMSelector('BranchyNet', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('Branchy', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = LLMSelector('ZTWNet', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('ZTW', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
     selector = LLMSelector('EENet', MODEL_SAVE_PATH, DATA_PATH)
     plotter.add_results('EE', selector.train_dset, selector.test_dset)
     print(selector.get_means())
