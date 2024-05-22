@@ -105,7 +105,7 @@ class EENet(LightningTemplate):
         outputs = []
         with torch.no_grad():
             for embedding in inputs:
-                complexity = self.complexity(embedding)
+                complexity = self.complexity(embedding) * 1.5
                 encoded = self.criticality_encoder(embedding)
                 for i in range(len(self.criticality)):
                     cl = self.classifier[i](torch.cat([complexity, self.criticality[i](encoded)]))

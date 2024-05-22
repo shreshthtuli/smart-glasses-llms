@@ -43,12 +43,12 @@ if __name__ == '__main__':
     plotter.add_results('ZTW', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
-    selector = LLMSelector('EENet', MODEL_SAVE_PATH, DATA_PATH)
-    plotter.add_results('EE', selector.train_dset, selector.test_dset)
-    print(selector.get_means())
-
     selector = LLMSelector('FCNNet', MODEL_SAVE_PATH, DATA_PATH)
     plotter.add_results('FCN', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
+    selector = LLMSelector('EENet', MODEL_SAVE_PATH, DATA_PATH)
+    plotter.add_results('EE', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
     selector = IdealSelector(DATA_PATH)

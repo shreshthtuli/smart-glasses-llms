@@ -29,7 +29,7 @@ class LLMSelector(TemplateSelector):
                                       0.2*self.train_dset[llm_name+'_score'].std())
         max_time = max([self.train_dset[llm_name+'_time'].max() for llm_name in self.all_llm_names])
         min_time = min([self.train_dset[llm_name+'_time'].min() for llm_name in self.all_llm_names])
-        qos = [complexity * 10 * ((p_score[llm_name] - 1) / 9) * 2 + 
+        qos = [complexity * 10 * ((p_score[llm_name] - 1) / 9) + 
                criticality * 10 * (1 - ((p_time[llm_name] - min_time) / (max_time - min_time))) 
                 for llm_name in self.all_llm_names]
         selection = self.all_llm_names[np.argmax(qos)]
