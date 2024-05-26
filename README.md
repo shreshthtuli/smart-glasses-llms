@@ -19,3 +19,10 @@ python3 train_llm.py --model EENet
 
 python3 train_rl --model 
 ```
+
+# Next steps
+
+1. Description of baseline adaptations.
+2. Distribution of Early exits.
+3. Generalization tests.
+4. Memory and compute load. 

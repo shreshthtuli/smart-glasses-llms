@@ -51,8 +51,9 @@ if __name__ == '__main__':
     plotter.add_results('EE', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
-    selector = IdealSelector(DATA_PATH)
-    plotter.add_results('Oracle', selector.train_dset, selector.test_dset)
-    print(selector.get_means())
+    # selector = IdealSelector(DATA_PATH)
+    # plotter.add_results('Oracle', selector.train_dset, selector.test_dset)
+    # print(selector.get_means())
 
     plotter.plot_scores_times()
+    # plotter.gen_scores_times_table()
