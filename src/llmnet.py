@@ -115,7 +115,20 @@ class EENet(LightningTemplate):
                     break
                 outputs.append(torch.tensor([complexity, criticality]))
         return torch.stack(outputs).detach()
-    
+
+    def predict1(self, inputs):
+        outputs = []
+        with torch.no_grad():
+            for embedding in inputs:
+                complexity = self.complexity(embedding) * 1.5
+                encoded = self.criticality_encoder(embedding)
+                for i in range(len(self.criticality)):
+                    cl = self.classifier[i](torch.cat([complexity, self.criticality[i](encoded)]))
+                    criticality = self.exit[i](self.criticality[i](encoded))
+                    break
+                outputs.append(torch.tensor([complexity, criticality]))
+        return torch.stack(outputs).detach()
+
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=2e-5)
 

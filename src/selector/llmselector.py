@@ -11,10 +11,11 @@ import torch
 torch.manual_seed(42)
 
 class LLMSelector(TemplateSelector):
-    def __init__(self, MODEL_NAME, MODEL_PATH, DATA_PATH, percentile=0.5):
+    def __init__(self, MODEL_NAME, MODEL_PATH, DATA_PATH, exit=None, percentile=0.5):
         super().__init__(DATA_PATH)
         self.model = eval(MODEL_NAME).load_from_checkpoint(checkpoint_path=f'{MODEL_PATH}/{MODEL_NAME}/checkpoint.ckpt')
         self.model.eval()
+        self.exit = exit
         self.percentile = percentile
         self.model_name = MODEL_NAME
         self.select()
@@ -51,7 +52,7 @@ class LLMSelector(TemplateSelector):
             for index, row in track(dset.iterrows(), total=len(dset)):
                 start = tt()
                 embedding, _ = torch_dset.__getitem__(index)
-                output = self.model.predict(embedding.unsqueeze(0))
+                output = self.model.predict(embedding.unsqueeze(0)) if self.exit is None else self.model.predict1(embedding.unsqueeze(0))
                 complexity, criticality = output.detach().tolist()[0]
                 selection = self.qos_selector(complexity, criticality)
                 selection_time = tt() - start

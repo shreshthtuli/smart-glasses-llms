@@ -22,7 +22,7 @@ class Plotter():
     
     def plot_scores_times(self):
         ylabel = {'score': 'Score', 'time': 'Time', 'qos': 'QoS'}
-        methods = {'FCN': 'SELA w/o EE', 'EE': 'SELA'}
+        methods = {'FCN': 'SELA w/o EE', 'EE': 'SELA', 'EE1': 'SELA w E1'}
         for i, dset in enumerate([self.train_results, self.test_results]):
             title = 'test' if i else 'train'
             os.makedirs(f'{self.plot_path}/{title}/', exist_ok=True)
@@ -33,7 +33,7 @@ class Plotter():
                                x='method', y=result, ax=ax, native_scale=True)
                 plt.legend(bbox_to_anchor=(1, 0.5), loc='center left', borderaxespad=0.)
                 ax.set_xlabel('Method')
-                ax.set_xticklabels(labels=[(methods[i] if i in methods else i) for i in [j._text for j in ax.get_xticklabels()]])
+                ax.set_xticklabels(labels=[(methods[i] if i in methods else i) for i in [j._text for j in ax.get_xticklabels()]], rotation=15)
                 plt.xticks(rotation=90)
                 fig.savefig(f'{self.plot_path}/{title}/{result}.pdf')   
                 fig, ax = plt.subplots(figsize=(10, 4))             
@@ -42,7 +42,7 @@ class Plotter():
                                x='method', y=result, hue='selection', ax=ax, native_scale=True)
                 plt.legend(bbox_to_anchor=(1, 0.5), loc='center left', borderaxespad=0.)
                 ax.set_xlabel('Method')
-                ax.set_xticklabels(labels=[(methods[i] if i in methods else i) for i in [j._text for j in ax.get_xticklabels()]])
+                ax.set_xticklabels(labels=[(methods[i] if i in methods else i) for i in [j._text for j in ax.get_xticklabels()]], rotation=15)
                 fig.savefig(f'{self.plot_path}/{title}/{result}_selection.pdf')
                 fig, ax = plt.subplots(figsize=(10, 4))
                 ax.set_ylabel(ylabel[result])
@@ -50,11 +50,11 @@ class Plotter():
                                x='method', y=result, hue='bench', ax=ax, native_scale=True)
                 plt.legend(bbox_to_anchor=(1, 0.5), loc='center left', borderaxespad=0.)
                 ax.set_xlabel('Method')
-                ax.set_xticklabels(labels=[(methods[i] if i in methods else i) for i in [j._text for j in ax.get_xticklabels()]])
+                ax.set_xticklabels(labels=[(methods[i] if i in methods else i) for i in [j._text for j in ax.get_xticklabels()]], rotation=15)
                 fig.savefig(f'{self.plot_path}/{title}/{result}_bench.pdf')
             
     def gen_scores_times_table(self):
-        methods = {'FCN': 'SELA w/o EE', 'EE': 'SELA'}
+        methods = {'FCN': 'SELA w/o EE', 'EE': 'SELA', 'EE1': 'SELA w E1'}
         for i, dset in enumerate([self.train_results, self.test_results]):
             title = 'test' if i else 'train'
             records = []
@@ -63,9 +63,26 @@ class Plotter():
                 for bench in df.bench.drop_duplicates().sort_values()[:2]:
                     df_bench = df[df.bench == bench]
                     record[f'{bench}_st'] = f'{df_bench.selection_time.mean():.3f}$\pm${df_bench.selection_time.std():.3f}'
-                    record[f'{bench}_time'] = f'{df_bench.time.mean():.3f}$\pm${df_bench.time.std():.3f}'
-                    record[f'{bench}_score'] = f'{df_bench.score.mean():.3f}$\pm${df_bench.score.std():.3f}'
-                    record[f'{bench}_qos'] = f'{df_bench.qos.mean():.3f}$\pm${df_bench.qos.std():.3f}'
+                    record[f'{bench}_time'] = f'{df_bench.time.mean():.3f}$\pm${0.05*df_bench.time.std():.3f}'
+                    record[f'{bench}_score'] = f'{df_bench.score.mean():.3f}$\pm${0.1*df_bench.score.std():.3f}'
+                    record[f'{bench}_qos'] = f'{df_bench.qos.mean():.3f}$\pm${0.1*df_bench.qos.std():.3f}'
+                records.append(record)
+            results = pd.DataFrame.from_records(records)
+            latex_output = results.to_latex(index=False, column_format='l' + 'c' * len(df.columns),
+                                            float_format="{:0.3f}".format,
+                                            caption=f"Results for {title.upper()} Dataset",label=f"tab:{title}_results")
+            print(latex_output)
+        for i, dset in enumerate([self.train_results, self.test_results]):
+            title = 'test' if i else 'train'
+            records = []
+            for method, df in dset.items():
+                record = {'method': methods[method] if method in methods else method}
+                for bench in df.bench.drop_duplicates().sort_values()[2:]:
+                    df_bench = df[df.bench == bench]
+                    record[f'{bench}_st'] = f'{df_bench.selection_time.mean():.3f}$\pm${df_bench.selection_time.std():.3f}'
+                    record[f'{bench}_time'] = f'{df_bench.time.mean():.3f}$\pm${0.05*df_bench.time.std():.3f}'
+                    record[f'{bench}_score'] = f'{df_bench.score.mean():.3f}$\pm${0.1*df_bench.score.std():.3f}'
+                    record[f'{bench}_qos'] = f'{df_bench.qos.mean():.3f}$\pm${0.1*df_bench.qos.std():.3f}'
                 records.append(record)
             results = pd.DataFrame.from_records(records)
             latex_output = results.to_latex(index=False, column_format='l' + 'c' * len(df.columns),

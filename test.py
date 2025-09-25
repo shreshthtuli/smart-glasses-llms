@@ -43,6 +43,10 @@ if __name__ == '__main__':
     plotter.add_results('ZTW', selector.train_dset, selector.test_dset)
     print(selector.get_means())
 
+    selector = LLMSelector('EENet', MODEL_SAVE_PATH, DATA_PATH, 1)
+    plotter.add_results('EE1', selector.train_dset, selector.test_dset)
+    print(selector.get_means())
+
     selector = LLMSelector('FCNNet', MODEL_SAVE_PATH, DATA_PATH)
     plotter.add_results('FCN', selector.train_dset, selector.test_dset)
     print(selector.get_means())
@@ -56,4 +60,4 @@ if __name__ == '__main__':
     # print(selector.get_means())
 
     plotter.plot_scores_times()
-    # plotter.gen_scores_times_table()
+    plotter.gen_scores_times_table()
